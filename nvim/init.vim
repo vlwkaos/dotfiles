@@ -3,6 +3,7 @@ let mapleader = " "
 " ignore case when all lowercase
 :set ignorecase
 :set smartcase
+:set incsearch
 " use system clipboard to copy and paste
 noremap y "*y
 noremap Y "*Y
@@ -35,6 +36,7 @@ nmap gc ?class\|constructor<CR>
 call plug#begin(stdpath('data') . '/plugged')
 Plug 'unblevable/quick-scope'
 Plug 'justinmk/vim-sneak'
+Plug 'tpope/vim-surround'
 call plug#end()
 " plugin settings
 
