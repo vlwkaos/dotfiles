@@ -1,20 +1,13 @@
 " set leader key to <space>
 let mapleader = " "
+set fileencoding=utf-8
+set nowrap
 " ignore case when all lowercase
-:set ignorecase
-:set smartcase
-:set incsearch
+set ignorecase
+set smartcase
+set incsearch
 " use system clipboard to copy and paste
-noremap y "*y
-noremap Y "*Y
-noremap p "*p
-noremap P "*P
-vnoremap y "*y
-vnoremap Y "*Y
-vnoremap p "*p
-vnoremap P "*P
-nnoremap x "_x
-nnoremap X "_X
+set clipboard+=unnamedplus
 nnoremap d "_d
 nnoremap D "_D
 vnoremap d "_d
