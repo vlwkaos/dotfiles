@@ -1,1 +1,4 @@
-ln -s ./nvim/init.vim ~/.config/nvim/init.vim
+#!/bin/bash
+echo "Moving current directory to ~/.dotfiles"
+mv ../dotfiles ~/.dotfiles
+ln -sf ~/.dotfiles/nvim/init.vim ~/.config/nvim/init.vim
