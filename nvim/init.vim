@@ -35,6 +35,9 @@ vnoremap d "_d
 nnoremap <Leader>d "*d
 nnoremap <Leader>D "*D
 vnoremap <Leader>d "*d
+nnoremap x "_x
+nnoremap X "_X
+vnoremap x "_x
 " find match, start inplace
 nnoremap * *N
 " search selected
@@ -61,26 +64,25 @@ if exists('g:vscode')
     command! NextError call VSCodeNotify('editor.action.marker.next')
     " tab key to cycle tabs, 
     " must start with Uppercase T, this is vscode workaround
-    noremap <Tab> :Tabnext<CR>
-    noremap <S-Tab> :Tabprev<CR>
+    noremap <silent> <Tab> :Tabnext<CR>
+    noremap <silent> <S-Tab> :Tabprev<CR>
     " quit other tabs, quit right
-    noremap <Leader>qa :Tabcgroup<CR>
-    noremap <Leader>qo :Tabonly<CR>
-    noremap <Leader>qr :Tabcright<CR>
+    noremap <silent> <Leader>qa :Tabcgroup<CR>
+    noremap <silent> <Leader>qo :Tabonly<CR>
+    noremap <silent> <Leader>qr :Tabcright<CR>
     " split move tabs
-    noremap <Leader>l :Tabmover<CR>
-    noremap <Leader>h :Tabmovel<CR>
+    noremap <silent> <Leader>l :Tabmover<CR>
+    noremap <silent> <Leader>h :Tabmovel<CR>
     " reveal file in explorer
-    noremap <Leader>i :ShowActiveFile<CR>
+    noremap <silent> <Leader>i :ShowActiveFile<CR>
     " find reference
-    nnoremap gr :FindRef<CR>
+    nnoremap <silent> gr :FindRef<CR>
     " find in files, query: word under caret
-    noremap <Leader>/ :FindInFile<CR>
+    noremap <silent> <Leader>/ :FindInFile<CR>
     " save all
-    noremap <Leader>sa :SaveAllFiles<CR>
+    noremap <silent> <Leader>sa :SaveAllFiles<CR>
     " goto error mark 
-    nnoremap <Leader>e :NextError<CR>
-
+    nnoremap <silent> <Leader>e :NextError<CR>
 else
     " ordinary neovim
     " show line number in nvim 
