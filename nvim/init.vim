@@ -1,3 +1,24 @@
+" vim plug begin--------------------------
+call plug#begin(stdpath('data') . '/plugged')
+Plug 'unblevable/quick-scope'
+Plug 'justinmk/vim-sneak'
+Plug 'tpope/vim-surround'
+call plug#end()
+" plugin settings
+
+" sneak, clever mode
+let g:sneak#s_next = 1
+map f <Plug>Sneak_f
+map F <Plug>Sneak_F
+map t <Plug>Sneak_t
+map T <Plug>Sneak_T
+
+" quickscope underline instead of highlight for compatibility
+highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
+highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
+
+" plugin setting end----------------------
+
 " set leader key to <space>
 let mapleader = " "
 set fileencoding=utf-8
@@ -22,29 +43,7 @@ vmap // y/\V<C-R>*<CR>
 nnoremap <Leader>r :%s///g<left><left><left>
 " replace selected
 vmap <Leader>r y:%s/<C-R>*//g<left><left>
-" class/constructor shortcut
-nmap gc ?class\|constructor<CR>
 
-" vim plug begin
-call plug#begin(stdpath('data') . '/plugged')
-Plug 'unblevable/quick-scope'
-Plug 'justinmk/vim-sneak'
-Plug 'tpope/vim-surround'
-call plug#end()
-" plugin settings
-
-" sneak, clever mode
-let g:sneak#s_next = 1
-map f <Plug>Sneak_f
-map F <Plug>Sneak_F
-map t <Plug>Sneak_t
-map T <Plug>Sneak_T
-
-" quickscope underline instead of highlight for compatibility
-highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
-highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
-
-" plugin setting end
 
 if exists('g:vscode')
     " VSCode extension
