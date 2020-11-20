@@ -40,7 +40,6 @@ nnoremap <Leader>d "*d
 nnoremap <Leader>D "*D
 vnoremap <Leader>d "*d
 nnoremap x "_x
-nnoremap X "_X
 vnoremap x "_x
 " find match, start inplace
 nnoremap * *N
@@ -87,6 +86,8 @@ if exists('g:vscode')
     nnoremap <Leader>r :%s///g
     " replace selected
     vmap <Leader>r y:%s/<C-R>*//g
+    "
+    noremap X :Tabclose<CR>
 else
     " ordinary neovim
     " show line number in nvim 
