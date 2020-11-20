@@ -27,6 +27,10 @@ set nowrap
 set ignorecase
 set smartcase
 set incsearch
+set autoindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
 " use system clipboard to copy and paste
 set clipboard+=unnamedplus
 nnoremap d "_d
@@ -42,11 +46,6 @@ vnoremap x "_x
 nnoremap * *N
 " search selected
 vmap // y/\V<C-R>*<CR>
-" replace shortcut
-nnoremap <Leader>r :%s///g<left><left><left>
-" replace selected
-vmap <Leader>r y:%s/<C-R>*//g<left><left>
-
 
 if exists('g:vscode')
     " VSCode extension
@@ -83,8 +82,18 @@ if exists('g:vscode')
     noremap <silent> <Leader>sa :SaveAllFiles<CR>
     " goto error mark 
     nnoremap <silent> <Leader>e :NextError<CR>
+
+    " replace shortcut
+    nnoremap <Leader>r :%s///g
+    " replace selected
+    vmap <Leader>r y:%s/<C-R>*//g
 else
     " ordinary neovim
     " show line number in nvim 
     set number
+
+    " replace shortcut
+    nnoremap <Leader>r :%s///g<left><left><left>
+    " replace selected
+    vmap <Leader>r y:%s/<C-R>*//g<left><left>
 endif
