@@ -31,6 +31,7 @@ set autoindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set noswapfile
 " use system clipboard to copy and paste
 set clipboard+=unnamedplus
 nnoremap d "_d
