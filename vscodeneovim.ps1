@@ -1,1 +1,1 @@
-New-Item -Path ~/appdata/local/nvim/init.vim -ItemType SymbolicLink -Value ./nvim/vscode/init.vim -Force
+New-Item -Path ~/appdata/local/nvim/init.vim -ItemType SymbolicLink -Value ./vscode/init.vim -Force

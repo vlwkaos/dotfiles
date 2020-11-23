@@ -1,0 +1,5 @@
+#!/bin/bash
+[ ! -d "$HOME/.dotfiles" ] && mv "../../dotfiles" "$HOME/.dotfiles"
+
+cp "./.gitalias.txt" "$HOME/.gitalias.txt"
+#ln -sf "$HOME/.dotfiles/gitconfig/.gitalias.txt" "$HOME/.gitalias.txt"
