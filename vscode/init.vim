@@ -62,6 +62,8 @@ if exists('g:vscode')
     command! SaveAllFiles call VSCodeNotify('workbench.action.files.saveAll')
     " editor commands define
     command! NextError call VSCodeNotify('editor.action.marker.next')
+    command! NextChange call VSCodeNotify('editor.action.dirtydiff.next')
+    command! NextConflict call VSCodeNotify('merge-conflict.next')
     " tab key to cycle tabs, 
     " must start with Uppercase T, this is vscode workaround
     noremap <silent> <Tab> :Tabnext<CR>
@@ -82,7 +84,10 @@ if exists('g:vscode')
     " save all
     noremap <silent> <Leader>sa :SaveAllFiles<CR>
     " goto error mark 
-    nnoremap <silent> <Leader>e :NextError<CR>
+    nnoremap <silent> <Leader>ne :NextError<CR>
+    " show next change
+    nnoremap <silent> <Leader>nc :NextChange<CR>
+    nnoremap <silent> <Leader>nC :NextConflict<CR>
 
     " replace shortcut
     nnoremap <Leader>r :%s///g
