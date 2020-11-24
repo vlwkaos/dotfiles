@@ -19,6 +19,8 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
+" test suite :TestFile
+Plug 'vim-test/vim-test'
 " js/ts syntax highlighting
 Plug 'pangloss/vim-javascript' " js
 Plug 'HerringtonDarkholme/yats'
