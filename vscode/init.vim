@@ -58,7 +58,7 @@ if exists('g:vscode')
     " sidebar commands define
     command! ShowActiveFile call VSCodeNotify('workbench.files.action.showActiveFileInExplorer')
     command! FindRef call VSCodeNotify('references-view.findReferences')
-    command! FindInFile call VSCodeNotify('workbench.action.findInFiles', {'query': expand('<cword>')})
+    command! FindInFile call VSCodeNotify('workbench.action.replaceInFiles', {'query': expand('<cword>')})
     command! SaveAllFiles call VSCodeNotify('workbench.action.files.saveAll')
     " editor commands define
     command! NextError call VSCodeNotify('editor.action.marker.next')
