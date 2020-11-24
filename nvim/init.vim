@@ -63,9 +63,9 @@ let g:NERDTreeIgnore = []
 let g:NERDTreeStatusline = ''
 " Automaticaly close nvim if NERDTree is only thing left open
 " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" Toggle
-nnoremap <silent> <C-b> :NERDTreeToggle<CR>
-nmap <silent> <leader>i :NERDTreeFind<CR> 
+" Toggle file tree, find
+nnoremap <silent> <leader>ft :NERDTreeToggle<CR>
+nmap <silent> <leader>fi :NERDTreeFind<CR> 
 
 " ## fzf
 command! -bang -nargs=? -complete=dir Files
@@ -73,7 +73,7 @@ command! -bang -nargs=? -complete=dir Files
 " rg with preview
 command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
 nnoremap <Leader>/ :Rg<CR>
-nnoremap <C-p> :FZF<CR>
+nnoremap <Leader>p :FZF<CR>
 let $FZF_DEFAULT_OPTS = '--layout=reverse --inline-info'
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden -g "!node_modules/**" -g "!build/**" -g "!.git/**"' 
 let g:fzf_action = {
@@ -145,7 +145,7 @@ nmap <silent> <Leader>. <Plug>(coc-codeaction)
 " rename
 nmap <silent> <F2> <Plug>(coc-rename)
 " move file requires watchman
-nmap <Leader>mf :CocCommand workspace.renameCurrentFile<CR>
+nmap <Leader>fm :CocCommand workspace.renameCurrentFile<CR>
 nmap <silent> <Leader>ff :call CocAction('format')<CR>
 
 " ## sneak, clever mode
@@ -224,13 +224,13 @@ noremap <Leader>sa :wa
 " :wa write all
 " :xa exit all
 
-" use alt+hjkl to move between split/vsplit panels
-tnoremap <A-h> <C-\><C-n><C-w>h
-tnoremap <A-j> <C-\><C-n><C-w>j
-tnoremap <A-k> <C-\><C-n><C-w>k
-tnoremap <A-l> <C-\><C-n><C-w>l
-nnoremap <A-h> <C-w>h
-nnoremap <A-j> <C-w>j
-nnoremap <A-k> <C-w>k
-nnoremap <A-l> <C-w>l
+" use leader to avoid alt mapping
+tnoremap <Leader><Leader>h <C-\><C-n><C-w>h
+tnoremap <Leader><Leader>j <C-\><C-n><C-w>j
+tnoremap <Leader><Leader>k <C-\><C-n><C-w>k
+tnoremap <Leader><Leader>l <C-\><C-n><C-w>l
+nnoremap <Leader><Leader>h <C-w>h
+nnoremap <Leader><Leader>j <C-w>j
+nnoremap <Leader><Leader>k <C-w>k
+nnoremap <Leader><Leader>l <C-w>l
 
