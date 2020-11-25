@@ -8,10 +8,6 @@ call plug#end()
 
 " sneak, clever mode
 let g:sneak#s_next = 1
-map f <Plug>Sneak_f
-map F <Plug>Sneak_F
-map t <Plug>Sneak_t
-map T <Plug>Sneak_T
 
 " quickscope underline instead of highlight for compatibility
 highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
