@@ -37,8 +37,6 @@ nnoremap <Leader>D "*D
 vnoremap <Leader>d "*d
 nnoremap x "_x
 vnoremap x "_x
-nnoremap p ]p
-nnoremap <Leader>p p
 " find match, start inplace
 nnoremap * *N
 " search selected
