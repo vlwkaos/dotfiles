@@ -7,6 +7,7 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'unblevable/quick-scope'
 Plug 'justinmk/vim-sneak'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 
 " git
 Plug 'tpope/vim-fugitive'
@@ -62,18 +63,13 @@ let g:NERDTreeMinimalUI = 1
 let g:NERDTreeIgnore = []
 let g:NERDTreeStatusline = ''
 " Automaticaly close nvim if NERDTree is only thing left open
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" Toggle file tree, find
-nnoremap <silent> <leader>ft :NERDTreeToggle<CR>
-nmap <silent> <leader>fi :NERDTreeFind<CR> 
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " ## fzf
 command! -bang -nargs=? -complete=dir Files
     \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--inline-info']}), <bang>0)
 " rg with preview
 command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
-nnoremap <Leader>/ :Rg<CR>
-nnoremap <Leader>p :FZF<CR>
 let $FZF_DEFAULT_OPTS = '--layout=reverse --inline-info'
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden -g "!node_modules/**" -g "!build/**" -g "!.git/**"' 
 let g:fzf_action = {
@@ -130,30 +126,9 @@ endfunction
 
 autocmd CursorHoldI * :call <SID>show_hover_doc()
 autocmd CursorHold * :call <SID>show_hover_doc()
-" hover
-nmap <silent> gh :call CocActionAsync('doHover')<CR>
-" go to definition...
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gr <Plug>(coc-references)
-nmap <silent> gi <Plug>(coc-implementation)
-" goto error
-nmap <silent> <Leader>E <Plug>(coc-diagnostic-prev)
-nmap <silent> <Leader>e <Plug>(coc-diagnostic-next)
-" code action quick fix
-nmap <silent> <Leader>. <Plug>(coc-codeaction)
-" rename
-nmap <silent> <F2> <Plug>(coc-rename)
-" move file requires watchman
-nmap <Leader>fm :CocCommand workspace.renameCurrentFile<CR>
-nmap <silent> <Leader>ff :call CocAction('format')<CR>
 
 " ## sneak, clever mode
 let g:sneak#s_next = 1
-map f <Plug>Sneak_f
-map F <Plug>Sneak_F
-map t <Plug>Sneak_t
-map T <Plug>Sneak_T
 
 " ## quickscope underline instead of highlight for compatibility
 highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
@@ -218,19 +193,74 @@ vmap <Leader>r y:%s/<C-R>*//g<left><left>
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
 " quit commands
-noremap <Leader>qo :tabonly
-noremap <Leader>qa :xa
-noremap <Leader>sa :wa
+noremap <Leader>qo :tabonly<CR>
+noremap <Leader>qa :xa<CR>
+noremap <Leader>sa :wa<CR>
 " :wa write all
 " :xa exit all
 
-" use leader to avoid alt mapping
-tnoremap <Leader><Leader>h <C-\><C-n><C-w>h
-tnoremap <Leader><Leader>j <C-\><C-n><C-w>j
-tnoremap <Leader><Leader>k <C-\><C-n><C-w>k
-tnoremap <Leader><Leader>l <C-\><C-n><C-w>l
-nnoremap <Leader><Leader>h <C-w>h
-nnoremap <Leader><Leader>j <C-w>j
-nnoremap <Leader><Leader>k <C-w>k
-nnoremap <Leader><Leader>l <C-w>l
+" move split pane
+tnoremap <A-h> <C-\><C-n><C-w>h
+tnoremap <A-j> <C-\><C-n><C-w>j
+tnoremap <A-k> <C-\><C-n><C-w>k
+tnoremap <A-l> <C-\><C-n><C-w>l
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
+" resize split pane
+noremap <A-J> <C-w>-
+noremap <A-K> <C-w>+
+noremap <A-H> <C-w><
+noremap <A-L> <C-w>>
 
+" Mac OS Alt key bindings
+if has("gui_macvim")
+    " requires option as +ESC
+    tnoremap ^[h <C-\><C-n><C-w>h
+    tnoremap ^[j <C-\><C-n><C-w>j
+    tnoremap ^[k <C-\><C-n><C-w>k
+    tnoremap ^[l <C-\><C-n><C-w>l
+    nnoremap ^[h <C-w>h
+    nnoremap ^[j <C-w>j
+    nnoremap ^[k <C-w>k
+    nnoremap ^[l <C-w>l
+    noremap ^[J <C-w>-
+    noremap ^[K <C-w>+
+    noremap ^[H <C-w><
+    noremap ^[L <C-w>>
+endif
+
+" =============Plugin Key Maps ====================
+" ## Toggle NERDTree, reveal File
+nnoremap <silent> <C-b> :NERDTreeToggle<CR>
+nmap <silent> <leader>i :NERDTreeFind<CR> 
+
+" ## vim-sneak
+map f <Plug>Sneak_f
+map F <Plug>Sneak_F
+map t <Plug>Sneak_t
+map T <Plug>Sneak_T
+
+" ## Coc language feature
+" hover
+nmap <silent> gh :call CocActionAsync('doHover')<CR>
+" go to definition...
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gi <Plug>(coc-implementation)
+" goto error
+nmap <silent> [e <Plug>(coc-diagnostic-prev)
+nmap <silent> ]e <Plug>(coc-diagnostic-next)
+" code action quick fix
+nmap <silent> <Leader>. <Plug>(coc-codeaction)
+" rename
+nmap <silent> <F2> <Plug>(coc-rename)
+" move file requires watchman
+nmap <Leader>fm :CocCommand workspace.renameCurrentFile<CR>
+nmap <silent> <Leader>ff :call CocAction('format')<CR>
+
+" ## fzf-vim
+nnoremap <Leader>/ :Rg<CR>
+nnoremap <C-p> :FZF<CR>
