@@ -8,6 +8,7 @@ Plug 'unblevable/quick-scope'
 Plug 'justinmk/vim-sneak'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-commentary'
 
 " git
 Plug 'tpope/vim-fugitive'
@@ -254,8 +255,7 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gi <Plug>(coc-implementation)
 " goto error
-nmap <silent> [e <Plug>(coc-diagnostic-prev)
-nmap <silent> ]e <Plug>(coc-diagnostic-next)
+nmap <silent> <Leader>e <Plug>(coc-diagnostic-next)
 " code action quick fix
 nmap <silent> <Leader>. <Plug>(coc-codeaction)
 " rename
