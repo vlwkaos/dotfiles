@@ -59,7 +59,7 @@ let g:airline_theme = 'codedark'
 let g:NERDTreeWinPos= "right" "open to right
 let g:NERDTreeWinSize=60
 let g:NERDTreeShowHidden = 1
-let g:NERDTreeMinimalUI = 1
+" let g:NERDTreeMinimalUI = 1
 let g:NERDTreeIgnore = []
 let g:NERDTreeStatusline = ''
 " Automaticaly close nvim if NERDTree is only thing left open
@@ -162,6 +162,8 @@ set nowritebackup
 set cmdheight=2
 set noswapfile
 set undofile
+" for webpack watch
+set backupcopy=yes
 if !isdirectory($HOME . '/tmpundo')
     call mkdir($HOME . '/tmpundo')
 endif
@@ -258,7 +260,7 @@ nmap <silent> <Leader>. <Plug>(coc-codeaction)
 " rename
 nmap <silent> <F2> <Plug>(coc-rename)
 " move file requires watchman
-nmap <Leader>fm :CocCommand workspace.renameCurrentFile<CR>
+nmap <Leader><F2> :CocCommand workspace.renameCurrentFile<CR>
 nmap <silent> <Leader>ff :call CocAction('format')<CR>
 
 " ## fzf-vim

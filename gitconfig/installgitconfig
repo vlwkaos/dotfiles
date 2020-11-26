@@ -1,8 +1,9 @@
 #!/bin/bash
-[ ! -d "$HOME/.dotfiles" ] && mv "../../dotfiles" "$HOME/.dotfiles"
+[ -d "$HOME/dotfiles" ] && mv "../../dotfiles" "$HOME/.dotfiles"
 
-ln -sf "$HOME/.dotfiles/gitconfig/gitalias.txt" "$HOME/gitalias.txt"
+echo "copy gitalias.txt"
+yes | cp -f gitalias.txt "$HOME/.gitalias.txt"
 
-echo "inserting gitalias include... this does not check for existing configs"
-echo "[include]" >> "$HOME/.gitconfig"
-echo -e "\tpath = gitalias.txt" >> "$HOME/.gitconfig"
+echo "git config include"
+git config --global include.path ~/.gitalias.txt
+
