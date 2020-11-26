@@ -108,11 +108,12 @@ let g:fzf_colors =
 " ## CoC extensions :CocInstall
 set updatetime=300
 let g:coc_global_extensions = [
-            \ 'coc-tsserver', 
-            \ 'coc-json', 
-            \ 'coc-css', 
-            \ 'coc-html',
-            \]
+  \ 'coc-tsserver', 
+  \ 'coc-tslint-plugin',
+  \ 'coc-json', 
+  \ 'coc-css', 
+  \ 'coc-html',
+  \]
 
 function! ShowDocIfNoDiagnostic(timer_id)
   if (coc#float#has_float() == 0)
@@ -156,7 +157,7 @@ set smarttab
 set smartindent
 set expandtab
 set autoindent
-set shiftwidth=4
+set shiftwidth=2
 set nobackup
 set nowritebackup
 set cmdheight=2
