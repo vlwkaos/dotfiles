@@ -64,7 +64,7 @@ let g:NERDTreeShowHidden = 1
 let g:NERDTreeIgnore = []
 let g:NERDTreeStatusline = ''
 " Automaticaly close nvim if NERDTree is only thing left open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " ## fzf
 command! -bang -nargs=? -complete=dir Files
@@ -163,6 +163,8 @@ set shiftwidth=2
 set nobackup
 set nowritebackup
 set cmdheight=2
+" read in external change ex) git switch
+set autoread 
 set noswapfile
 set undofile
 " for webpack watch
