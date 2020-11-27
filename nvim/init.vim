@@ -159,7 +159,7 @@ set smarttab
 set smartindent
 set expandtab
 set autoindent
-set shiftwidth=2
+set shiftwidth=4
 set nobackup
 set nowritebackup
 set cmdheight=2
@@ -270,3 +270,6 @@ nmap <silent> <Leader>ff :call CocAction('format')<CR>
 " ## fzf-vim
 nnoremap <Leader>/ :Rg<CR>
 nnoremap <C-p> :FZF<CR>
+
+set exrc
+set secure
