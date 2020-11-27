@@ -148,6 +148,7 @@ set encoding=utf-8
 set fileencoding=utf-8
 set nowrap
 set cursorline
+hi CursorLine term=bold cterm=bold guibg=Grey20
 " ignore case when all lowercase
 set ignorecase
 set smartcase
