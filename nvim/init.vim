@@ -177,6 +177,7 @@ set undodir=~/tmpundo//
 " use system clipboard to copy and paste
 set clipboard+=unnamedplus
 set grepprg=rg\ --vimgrep 
+set diffopt+=vertical
 "---------------------vim settings end-------------------------
 
 " general keymappings
