@@ -16,6 +16,7 @@ Plug 'airblade/vim-gitgutter'
 
 " file explorer and file searching
 " need silversearcher-ag for ignoring node_modules and .gitignore files
+Plug 'qpkorr/vim-bufkill'
 Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -186,7 +187,6 @@ nnoremap <Leader>d "*d
 nnoremap <Leader>D "*D
 vnoremap <Leader>d "*d
 nnoremap x "_x
-nnoremap X "_X
 vnoremap x "_x
 " find match, start inplace
 nnoremap * *N
@@ -197,12 +197,13 @@ nnoremap <Leader>r :%s///g<left><left><left>
 " replace selected
 vmap <Leader>r y:%s/<C-R>*//g<left><left>
 " change buffers
-nnoremap <Tab> :bnext<CR>
-nnoremap <S-Tab> :bprevious<CR>
+nnoremap <silent> <Tab> :BF<CR>
+nnoremap <silent> <S-Tab> :BB<CR>
 " quit commands
-noremap <Leader>qo :tabonly<CR>
-noremap <Leader>qa :xa<CR>
-noremap <Leader>sa :wa<CR>
+noremap <silent> <Leader>qo :tabonly<CR>
+noremap <silent> <Leader>qa :xa<CR>
+noremap <silent> <Leader>sa :wa<CR>
+noremap <silent> X :BD<CR>
 " :wa write all
 " :xa exit all
 
@@ -268,8 +269,8 @@ nmap <Leader><F2> :CocCommand workspace.renameCurrentFile<CR>
 nmap <silent> <Leader>ff :call CocAction('format')<CR>
 
 " ## fzf-vim
-nnoremap <Leader>/ :Rg<CR>
-nnoremap <C-p> :FZF<CR>
+nnoremap <silent> <Leader>/ :Rg<CR>
+nnoremap <silent> <C-p> :FZF<CR>
 
 set exrc
 set secure
