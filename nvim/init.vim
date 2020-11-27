@@ -133,11 +133,24 @@ autocmd CursorHold * :call <SID>show_hover_doc()
 " ## sneak, clever mode
 let g:sneak#s_next = 1
 
+" 이렇게 해야 적용된다
 " ## quickscope underline instead of highlight for compatibility
-highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
-highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
-" don't highlight in other window
-let g:qs_buftype_blacklist = ['terminal', 'nofile']
+augroup qs_colors
+  autocmd!
+  autocmd ColorScheme * highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
+  autocmd ColorScheme * highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
+augroup END
+
+" git gutter sign color
+augroup gutter_colors
+  autocmd!
+  autocmd ColorScheme * highlight GitGutterAdd guifg='#47b30b'
+  autocmd ColorScheme * highlight GitGutterChange guifg='#b3870b'
+  autocmd ColorScheme * highlight GitGutterDelete guifg='#b30b0b'
+  autocmd ColorScheme * highlight GitGutterChangeDelete guifg='0b7db3'
+  autocmd ColorScheme * highlight DiffDelete guifg='#b30b0b'
+augroup END
+" highlight GitGutterAdd 
 "---------------------plugin setting end----------------------
 
 "---------------------vim settings----------------------------
@@ -154,13 +167,17 @@ hi CursorLine term=bold cterm=bold guibg=Grey20
 set ignorecase
 set smartcase
 set incsearch
+" show line num
 set number 
+set cmdheight=2
+" tab settings
 set tabstop=4
 set smarttab
 set smartindent
 set expandtab
 set autoindent
 set shiftwidth=4
+" file settings
 set nobackup
 set nowritebackup
 set cmdheight=2
@@ -168,6 +185,9 @@ set cmdheight=2
 set autoread 
 set noswapfile
 set undofile
+" split settings
+set splitbelow
+set splitright
 " for webpack watch
 set backupcopy=yes
 if !isdirectory($HOME . '/tmpundo')
@@ -177,7 +197,9 @@ set undodir=~/tmpundo//
 " use system clipboard to copy and paste
 set clipboard+=unnamedplus
 set grepprg=rg\ --vimgrep 
+" open diff vertically
 set diffopt+=vertical
+
 "---------------------vim settings end-------------------------
 
 " general keymappings
@@ -217,6 +239,13 @@ nnoremap <A-h> <C-w>h
 nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
+
+" move pane
+noremap <Leader>h <C-w>H
+noremap <Leader>j <C-w>J
+noremap <Leader>k <C-w>K
+noremap <Leader>l <C-w>L
+
 " resize split pane
 noremap <A-J> <C-w>-
 noremap <A-K> <C-w>+
@@ -260,7 +289,10 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gi <Plug>(coc-implementation)
 " goto error
-nmap <silent> <Leader>e <Plug>(coc-diagnostic-next)
+nmap <silent> <Leader>]e <Plug>(coc-diagnostic-next)
+nmap <silent> <Leader>[e <Plug>(coc-diagnostic-next)
+" ]c, [c for next change
+
 " code action quick fix
 nmap <silent> <Leader>. <Plug>(coc-codeaction)
 " rename
@@ -272,6 +304,14 @@ nmap <silent> <Leader>ff :call CocAction('format')<CR>
 " ## fzf-vim
 nnoremap <silent> <Leader>/ :Rg<CR>
 nnoremap <silent> <C-p> :FZF<CR>
+
+" git diff tool
+nnoremap <silent> <Leader>gs :vertical Gstatus \| vertical resize -60<CR>
+nnoremap <silent> <Leader>gc :vertical Git mergetool<CR>
+nnoremap <silent> <Leader>gd :Gdiff!<CR>
+nnoremap <silent> <Leader>dgl :diffget //3<CR>
+nnoremap <silent> <Leader>dgh :diffget //2<CR>
+
 
 set exrc
 set secure
