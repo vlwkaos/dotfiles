@@ -92,6 +92,8 @@ if exists('g:vscode')
     vmap <Leader>r y:%s/<C-R>*//g
     "
     noremap X :Tabclose<CR>
+    autocmd FileType markdown nnoremap <silent> j :call VSCodeNotify('cursorDown')<CR>
+    autocmd FileType markdown nnoremap <silent> k :call VSCodeNotify('cursorUp')<CR>
 else
     " ordinary neovim
     " show line number in nvim 
