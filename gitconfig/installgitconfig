@@ -1,8 +1,9 @@
 #!/bin/bash
-[ -d "$HOME/dotfiles" ] && mv "../../dotfiles" "$HOME/.dotfiles"
+USER_HOME=$(eval echo ~${SUDO_USER})
+[ -d "$USER_HOME/dotfiles" ] && mv "../../dotfiles" "$USER_HOME/.dotfiles"
 
 echo "copy gitalias.txt"
-yes | cp -f gitalias.txt "$HOME/.gitalias.txt"
+yes | cp -f gitalias.txt "$USER_HOME/.gitalias.txt"
 
 echo "git config include"
 git config --global include.path ~/.gitalias.txt

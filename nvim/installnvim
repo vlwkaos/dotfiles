@@ -1,0 +1,5 @@
+#!/bin/bash
+USER_HOME=$(eval echo ~${SUDO_USER})
+[ ! -d "$USER_HOME/.dotfiles" ] && mv "$USER_HOME/dotfiles" "$USER_HOME/.dotfiles"
+ln -sf "$USER_HOME/.dotfiles/nvim/init.vim" "$USER_HOME/.config/nvim/init.vim"
+ln -sf "$USER_HOME/.dotfiles/nvim/coc-settings.json" "$USER_HOME/.config/nvim/coc-settings.json"
