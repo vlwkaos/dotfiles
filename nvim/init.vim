@@ -168,7 +168,7 @@ set ignorecase
 set smartcase
 set incsearch
 " show line num
-set number 
+set number relativenumber
 set cmdheight=2
 " tab settings
 set tabstop=4
@@ -299,7 +299,14 @@ nmap <silent> <Leader>. <Plug>(coc-codeaction)
 nmap <silent> <F2> <Plug>(coc-rename)
 " move file requires watchman
 nmap <Leader><F2> :CocCommand workspace.renameCurrentFile<CR>
-nmap <silent> <Leader>ff :call CocAction('format')<CR>
+function! CustomFormat()
+    let save_pos = getpos(".")
+    %s/\(\.\.\|\/\|src\)\+\/shared\//@shared\//g
+    silent call CocAction('runCommand', 'editor.action.organizeImport')
+    silent call CocAction('format')
+    silent call setpos(".",save_pos)
+endfunction
+nmap <silent> <Leader>ff :call CustomFormat()<CR>
 
 " ## fzf-vim
 nnoremap <silent> <Leader>/ :Rg<CR>
