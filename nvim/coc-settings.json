@@ -1,4 +1,4 @@
 {
   "typescript.preferences.importModuleSpecifier": "relative",
-  "coc.preferences.formatOnSaveFiletypes": ["typescript"]
+  "coc.preferences.formatOnSaveFiletypes": ["ts","typescript"]
 }
