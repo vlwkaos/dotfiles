@@ -16,7 +16,6 @@ Plug 'airblade/vim-gitgutter'
 
 " file explorer and file searching
 " need silversearcher-ag for ignoring node_modules and .gitignore files
-Plug 'qpkorr/vim-bufkill'
 Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -220,13 +219,14 @@ nnoremap <Leader>r :%s///g<left><left><left>
 " replace selected
 vmap <Leader>r y:%s/<C-R>*//g<left><left>
 " change buffers
-nnoremap <silent> <Tab> :BF<CR>
-nnoremap <silent> <S-Tab> :BB<CR>
+nnoremap <silent> <Tab> :bnext<CR>
+nnoremap <silent> <S-Tab> :bprevious<CR>
 " quit commands
 noremap <silent> <Leader>qo :tabonly<CR>
 noremap <silent> <Leader>qa :xa<CR>
 noremap <silent> <Leader>sa :wa<CR>
-noremap <silent> X :BD<CR>
+" close buffer and move to previous buffer
+noremap <silent> X :bp\|bd #<CR>
 " :wa write all
 " :xa exit all
 
