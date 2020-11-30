@@ -154,6 +154,8 @@ augroup END
 
 "---------------------vim settings----------------------------
 syntax enable
+" don't use old regexp engine for performance
+set re=0
 set hidden " buffer to be hidden instead of close. 
 set mouse=a
 set formatoptions-=cro " vim file, stop newline comment
