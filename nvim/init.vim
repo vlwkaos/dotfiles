@@ -271,7 +271,7 @@ endif
 
 " =============Plugin Key Maps ====================
 " ## Toggle NERDTree, reveal File
-nnoremap <silent> <C-b> :NERDTreeToggle<CR>
+nnoremap <silent> <leader>b :NERDTreeToggle<CR>
 nmap <silent> <leader>i :NERDTreeFind<CR> 
 
 " ## vim-sneak
@@ -310,7 +310,7 @@ nmap <silent> <Leader>ff :call CustomFormat()<CR>
 
 " ## fzf-vim
 nnoremap <silent> <Leader>/ :Rg<CR>
-nnoremap <silent> <C-p> :FZF<CR>
+nnoremap <silent> <Leader>p :FZF<CR>
 
 " git diff tool
 nnoremap <silent> <Leader>gs :vertical Gstatus \| vertical resize -60<CR>
