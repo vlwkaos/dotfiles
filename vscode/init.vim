@@ -62,7 +62,15 @@ if exists('g:vscode')
     command! SaveAllFiles call VSCodeNotify('workbench.action.files.saveAll')
     " editor commands define
     command! NextError call VSCodeNotify('editor.action.marker.next')
+    command! NextErrorInFiles call VSCodeNotify('editor.action.marker.nextInFiles')
+    command! PrevError call VSCodeNotify('editor.action.marker.prev')
+    command! PrevErrorInFiles call VSCodeNotify('editor.action.marker.prevInFiles')
+    command! NextChange call VSCodeNotify('workbench.action.editor.nextChange')
+    command! ShowNextChange call VSCodeNotify('editor.action.dirtydiff.next')
+    command! ShowPrevChange call VSCodeNotify('editor.action.dirtydiff.previous')
+    command! PrevChange call VSCodeNotify('workbench.action.editor.previousChange')
     command! NextConflict call VSCodeNotify('merge-conflict.next')
+    command! PrevConflict call VSCodeNotify('merge-conflict.previous')
     " Git staging
     command! HunkStage call VSCodeNotify('git.stageSelectedRages')
     command! HunkUnstage call VSCodeNotify('git.unstageSelectedRages')
@@ -90,9 +98,14 @@ if exists('g:vscode')
     " save all
     noremap <silent> <Leader>sa :SaveAllFiles<CR>
     " goto error mark 
-    nnoremap <silent> <Leader>e :NextError<CR>
-    " show next change
-    nnoremap <silent> <Leader>c :NextConflict<CR>
+    nnoremap <silent> ]e :NextError<CR>
+    nnoremap <silent> [e :PrevError<CR>
+    nnoremap <silent> ]E :NextErrorInFiles<CR>
+    nnoremap <silent> [E :PrevErrorInFiles<CR>
+    nnoremap <silent> ]c :NextChange<CR>
+    nnoremap <silent> [c :PrevChange<CR>
+    nnoremap <silent> ]C :ShowNextChange<CR>
+    nnoremap <silent> [C :ShowPrevChange<CR>
     " Git commands
     nnoremap <silent> <Leader>hs :HunkStage<CR>
     nnoremap <silent> <Leader>hu :HunkUnstage<CR>
@@ -109,6 +122,7 @@ else
     " ordinary neovim
     " show line number in nvim 
     set number
+    set mouse=a
 
     " replace shortcut
     nnoremap <Leader>r :%s///g<left><left><left>
