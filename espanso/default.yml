@@ -1,0 +1,26 @@
+# espanso configuration file
+
+# This is the default configuration file, change it as you like it
+# You can refer to the official documentation:
+# https://espanso.org/docs/
+
+# Matches are the substitution rules, when you type the "trigger" string
+# it gets replaced by the "replace" string.
+matches:
+  # Dates
+  - trigger: ":date"
+    replace: "{{log}}"
+    vars:
+      - name: log
+        type: date
+        params:
+          format: "%F"
+
+  # todo
+  - trigger: ":todo"
+    replace: "// TODO: 박민규 {{date}}"
+    vars:
+      - name: date
+        type: date
+        params:
+          format: "%F"
