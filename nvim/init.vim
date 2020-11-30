@@ -289,8 +289,8 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gi <Plug>(coc-implementation)
 " goto error
-nmap <silent> <Leader>]e <Plug>(coc-diagnostic-next)
-nmap <silent> <Leader>[e <Plug>(coc-diagnostic-next)
+nmap <silent> ]e <Plug>(coc-diagnostic-next)
+nmap <silent> [e <Plug>(coc-diagnostic-next)
 " ]c, [c for next change
 
 " code action quick fix
