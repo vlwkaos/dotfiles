@@ -72,10 +72,10 @@ if exists('g:vscode')
     command! NextConflict call VSCodeNotify('merge-conflict.next')
     command! PrevConflict call VSCodeNotify('merge-conflict.previous')
     " Git staging
-    command! HunkStage call VSCodeNotify('git.stageSelectedRages')
-    command! HunkUnstage call VSCodeNotify('git.unstageSelectedRages')
+    command! HunkStage call VSCodeNotify('git.stageSelectedRanges')
+    command! HunkUnstage call VSCodeNotify('git.unstageSelectedRanges')
     command! HunkRevert call VSCodeNotify('git.revertSelectedRanges')
-    command! Git call VSCodeNotify('gitlens.gitCommands')
+    command! Git call VSCodeNotifyRange('gitlens.gitCommands')
     command! Diffget call VSCodeNotify('merge-conflict.accept.selection')
     " tab key to cycle tabs, 
     " must start with Uppercase T, this is vscode workaround
