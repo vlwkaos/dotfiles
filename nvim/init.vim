@@ -222,7 +222,7 @@ vmap <Leader>r y:%s/<C-R>*//g<left><left>
 nnoremap <silent> <Tab> :bnext<CR>
 nnoremap <silent> <S-Tab> :bprevious<CR>
 " quit commands
-noremap <silent> <Leader>qo :only<CR>
+noremap <silent> <Leader>qo :%bd\|e#<CR>
 noremap <silent> <Leader>qa :xa<CR>
 noremap <silent> <Leader>sa :wa<CR>
 " close buffer and move to previous buffer
