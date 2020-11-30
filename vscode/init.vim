@@ -66,9 +66,9 @@ if exists('g:vscode')
     command! PrevError call VSCodeNotify('editor.action.marker.prev')
     command! PrevErrorInFiles call VSCodeNotify('editor.action.marker.prevInFiles')
     command! NextChange call VSCodeNotify('workbench.action.editor.nextChange')
+    command! PrevChange call VSCodeNotify('workbench.action.editor.previousChange')
     command! ShowNextChange call VSCodeNotify('editor.action.dirtydiff.next')
     command! ShowPrevChange call VSCodeNotify('editor.action.dirtydiff.previous')
-    command! PrevChange call VSCodeNotify('workbench.action.editor.previousChange')
     command! NextConflict call VSCodeNotify('merge-conflict.next')
     command! PrevConflict call VSCodeNotify('merge-conflict.previous')
     " Git staging
@@ -76,6 +76,7 @@ if exists('g:vscode')
     command! HunkUnstage call VSCodeNotify('git.unstageSelectedRages')
     command! HunkRevert call VSCodeNotify('git.revertSelectedRanges')
     command! Git call VSCodeNotify('gitlens.gitCommands')
+    command! Diffget call VSCodeNotify('merge-conflict.accept.selection')
     " tab key to cycle tabs, 
     " must start with Uppercase T, this is vscode workaround
     noremap <silent> <Tab> :Tabnext<CR>
@@ -104,12 +105,15 @@ if exists('g:vscode')
     nnoremap <silent> [E :PrevErrorInFiles<CR>
     nnoremap <silent> ]c :NextChange<CR>
     nnoremap <silent> [c :PrevChange<CR>
-    nnoremap <silent> ]C :ShowNextChange<CR>
-    nnoremap <silent> [C :ShowPrevChange<CR>
+    nnoremap <silent> ]f :NextConflict<CR>
+    nnoremap <silent> [f :PrevConflict<CR>
+    nnoremap <silent> ]s :ShowNextChange<CR>
+    nnoremap <silent> [s :ShowPrevChange<CR>
     " Git commands
     nnoremap <silent> <Leader>hs :HunkStage<CR>
     nnoremap <silent> <Leader>hu :HunkUnstage<CR>
     nnoremap <silent> <Leader>hr :HunkRevert<CR>
+    nnoremap <silent> <Leader>dg :Diffget<CR>
 
 
     " replace shortcut
