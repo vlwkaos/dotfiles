@@ -57,11 +57,17 @@ if exists('g:vscode')
     " sidebar commands define
     command! ShowActiveFile call VSCodeNotify('workbench.files.action.showActiveFileInExplorer')
     command! FindRef call VSCodeNotify('references-view.findReferences')
-    command! FindInFile call VSCodeNotify('workbench.action.replaceInFiles', {'query': expand('<cword>')})
+    command! FindInFile call VSCodeNotify('workbench.action.findInFiles', {'query': expand('<cword>')})
+    command! ReplaceInFile call VSCodeNotify('workbench.action.replaceInFiles', {'query': expand('<cword>')})
     command! SaveAllFiles call VSCodeNotify('workbench.action.files.saveAll')
     " editor commands define
     command! NextError call VSCodeNotify('editor.action.marker.next')
     command! NextConflict call VSCodeNotify('merge-conflict.next')
+    " Git staging
+    command! HunkStage call VSCodeNotify('git.stageSelectedRages')
+    command! HunkUnstage call VSCodeNotify('git.unstageSelectedRages')
+    command! HunkRevert call VSCodeNotify('git.revertSelectedRanges')
+    command! Git call VSCodeNotify('gitlens.gitCommands')
     " tab key to cycle tabs, 
     " must start with Uppercase T, this is vscode workaround
     noremap <silent> <Tab> :Tabnext<CR>
@@ -73,25 +79,30 @@ if exists('g:vscode')
     " split move tabs
     noremap <silent> <Leader>l :Tabmover<CR>
     noremap <silent> <Leader>h :Tabmovel<CR>
+    noremap X :Tabclose<CR>
     " reveal file in explorer
     noremap <silent> <Leader>i :ShowActiveFile<CR>
     " find reference
     nnoremap <silent> gr :FindRef<CR>
     " find in files, query: word under caret
     noremap <silent> <Leader>/ :FindInFile<CR>
+    noremap <silent> <Leader>R :ReplaceInFile<CR>
     " save all
     noremap <silent> <Leader>sa :SaveAllFiles<CR>
     " goto error mark 
     nnoremap <silent> <Leader>e :NextError<CR>
     " show next change
     nnoremap <silent> <Leader>c :NextConflict<CR>
+    " Git commands
+    nnoremap <silent> <Leader>hs :HunkStage<CR>
+    nnoremap <silent> <Leader>hu :HunkUnstage<CR>
+    nnoremap <silent> <Leader>hr :HunkRevert<CR>
+
 
     " replace shortcut
     nnoremap <Leader>r :%s///g
     " replace selected
     vmap <Leader>r y:%s/<C-R>*//g
-    "
-    noremap X :Tabclose<CR>
     autocmd FileType markdown nnoremap <silent> j :call VSCodeNotify('cursorDown')<CR>
     autocmd FileType markdown nnoremap <silent> k :call VSCodeNotify('cursorUp')<CR>
 else

@@ -1,3 +1,0 @@
-#!/bin/bash
-[ ! -d "$HOME/.dotfiles" ] && mv "../dotfiles" "$HOME/.dotfiles"
-ln -sf "$HOME/.dotfiles/vscode/init.vim" "$HOME/.config/nvim/init.vim"
