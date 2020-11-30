@@ -85,8 +85,8 @@ if exists('g:vscode')
     noremap <silent> <Leader>qo :Tabonly<CR>
     noremap <silent> <Leader>qr :Tabcright<CR>
     " split move tabs
-    noremap <silent> <Leader>l :Tabmover<CR>
-    noremap <silent> <Leader>h :Tabmovel<CR>
+    noremap <silent> <Leader>ll :Tabmover<CR>
+    noremap <silent> <Leader>hh :Tabmovel<CR>
     noremap X :Tabclose<CR>
     " reveal file in explorer
     noremap <silent> <Leader>i :ShowActiveFile<CR>
