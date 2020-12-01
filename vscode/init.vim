@@ -67,8 +67,10 @@ if exists('g:vscode')
     command! PrevErrorInFiles call VSCodeNotify('editor.action.marker.prevInFiles')
     command! NextChange call VSCodeNotify('workbench.action.editor.nextChange')
     command! PrevChange call VSCodeNotify('workbench.action.editor.previousChange')
-    command! ShowNextChange call VSCodeNotify('editor.action.dirtydiff.next')
-    command! ShowPrevChange call VSCodeNotify('editor.action.dirtydiff.previous')
+    function! ShowChangePreview()
+        call VSCodeNotify('closeDirtyDiff')
+        call VSCodeNotify('editor.action.dirtydiff.next')
+    endfunction
     command! NextConflict call VSCodeNotify('merge-conflict.next')
     command! PrevConflict call VSCodeNotify('merge-conflict.previous')
     " Git staging
@@ -107,12 +109,11 @@ if exists('g:vscode')
     nnoremap <silent> [c :PrevChange<CR>
     nnoremap <silent> ]f :NextConflict<CR>
     nnoremap <silent> [f :PrevConflict<CR>
-    nnoremap <silent> ]s :ShowNextChange<CR>
-    nnoremap <silent> [s :ShowPrevChange<CR>
     " Git commands
     nnoremap <silent> <Leader>hs :HunkStage<CR>
     nnoremap <silent> <Leader>hu :HunkUnstage<CR>
     nnoremap <silent> <Leader>hr :HunkRevert<CR>
+    nnoremap <silent> <Leader>hp :call ShowChangePreview()<CR>
     nnoremap <silent> <Leader>dg :Diffget<CR>
 
 
