@@ -25,9 +25,9 @@ let mapleader = " "
 set fileencoding=utf-8
 set nowrap
 " ignore case when all lowercase
+set noincsearch
 set ignorecase
 set smartcase
-set incsearch
 set tabstop=4
 set shiftwidth=4
 set expandtab
@@ -81,7 +81,6 @@ if exists('g:vscode')
     command! HunkStage call VSCodeNotify('git.stageSelectedRanges')
     command! HunkUnstage call VSCodeNotify('git.unstageSelectedRanges')
     command! HunkRevert call VSCodeNotify('git.revertSelectedRanges')
-    command! Git call VSCodeNotifyRange('gitlens.gitCommands')
     command! Diffget call VSCodeNotify('merge-conflict.accept.selection')
     " tab key to cycle tabs, 
     " must start with Uppercase T, this is vscode workaround
