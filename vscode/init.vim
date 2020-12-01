@@ -34,6 +34,10 @@ set expandtab
 set noswapfile
 " use system clipboard to copy and paste
 set clipboard+=unnamedplus
+nnoremap c "_c
+vnoremap c "_c
+nnoremap C "_C
+vnoremap C "_C
 nnoremap d "_d
 nnoremap D "_D
 vnoremap d "_d
