@@ -34,6 +34,10 @@ set expandtab
 set noswapfile
 " use system clipboard to copy and paste
 set clipboard+=unnamedplus
+nnoremap c "_c
+vnoremap c "_c
+nnoremap C "_C
+vnoremap C "_C
 nnoremap d "_d
 nnoremap D "_D
 vnoremap d "_d
@@ -77,7 +81,7 @@ if exists('g:vscode')
     command! HunkStage call VSCodeNotify('git.stageSelectedRanges')
     command! HunkUnstage call VSCodeNotify('git.unstageSelectedRanges')
     command! HunkRevert call VSCodeNotify('git.revertSelectedRanges')
-    command! Git call VSCodeNotify('gitlens.gitCommands')
+    command! Git call VSCodeNotifyRange('gitlens.gitCommands')
     command! Diffget call VSCodeNotify('merge-conflict.accept.selection')
     " tab key to cycle tabs, 
     " must start with Uppercase T, this is vscode workaround
