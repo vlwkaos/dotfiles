@@ -28,9 +28,7 @@ set nowrap
 set noincsearch
 set ignorecase
 set smartcase
-set tabstop=4
-set shiftwidth=4
-set expandtab
+set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab
 set noswapfile
 " use system clipboard to copy and paste
 set clipboard+=unnamedplus
@@ -46,6 +44,9 @@ nnoremap <Leader>D "*D
 vnoremap <Leader>d "*d
 nnoremap x "_x
 vnoremap x "_x
+" keep indent after new line
+nnoremap o ox<BS>
+nnoremap O Ox<BS>
 " find match, start inplace
 nnoremap * *N
 " search selected
