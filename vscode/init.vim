@@ -79,6 +79,7 @@ if exists('g:vscode')
     command! NextConflict call VSCodeNotify('merge-conflict.next')
     command! PrevConflict call VSCodeNotify('merge-conflict.previous')
     " Git staging
+    command! GitStatus call VSCodeNotify('workbench.scm.focus')
     command! HunkStage call VSCodeNotify('git.stageSelectedRanges')
     command! HunkUnstage call VSCodeNotify('git.unstageSelectedRanges')
     command! HunkRevert call VSCodeNotify('git.revertSelectedRanges')
@@ -119,6 +120,7 @@ if exists('g:vscode')
     nnoremap <silent> <Leader>hr :HunkRevert<CR>
     nnoremap <silent> <Leader>hp :call ShowChangePreview()<CR>
     nnoremap <silent> <Leader>dg :Diffget<CR>
+    nnoremap <silent> <Leader>gs :GitStatus<CR>
 
 
     " replace shortcut
