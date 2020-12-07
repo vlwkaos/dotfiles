@@ -49,11 +49,11 @@ nnoremap o ox<BS>
 nnoremap O Ox<BS>
 " find match, start inplace
 nnoremap * *N
-" search selected
-vmap // y/\V<C-R>*<CR>
+vnoremap * y/\V<C-R>*<CR>N
 
 if exists('g:vscode')
     " VSCode extension
+    command! RenameSymbol call VSCodeNotify('editor.action.rename')
     " tab commands define
     command! Tabcgroup call VSCodeNotify('workbench.action.closeEditorsInGroup')
     command! Tabcright call VSCodeNotify('workbench.action.closeEditorsToTheRight')
@@ -93,13 +93,15 @@ if exists('g:vscode')
     noremap <silent> <Leader>qo :Tabonly<CR>
     noremap <silent> <Leader>qr :Tabcright<CR>
     " split move tabs
-    noremap <silent> <Leader>ll :Tabmover<CR>
-    noremap <silent> <Leader>hh :Tabmovel<CR>
+    noremap <silent> <Leader><Leader>l :Tabmover<CR>
+    noremap <silent> <Leader><Leader>h :Tabmovel<CR>
     noremap X :Tabclose<CR>
     " reveal file in explorer
     noremap <silent> <Leader>i :ShowActiveFile<CR>
     " find reference
     nnoremap <silent> gr :FindRef<CR>
+    " Rename (a.k.a F2)
+    nnoremap <silent> <Leader>rn :RenameSymbol<CR>
     " find in files, query: word under caret
     noremap <silent> <Leader>/ :FindInFile<CR>
     noremap <silent> <Leader>R :ReplaceInFile<CR>
@@ -124,9 +126,9 @@ if exists('g:vscode')
 
 
     " replace shortcut
-    nnoremap <Leader>r :%s///g
+    nnoremap <Leader>rp :%s///g
     " replace selected
-    vmap <Leader>r y:%s/<C-R>*//g
+    vmap <Leader>rp y:%s/<C-R>*//g
     autocmd FileType markdown nnoremap <silent> j :call VSCodeNotify('cursorDown')<CR>
     autocmd FileType markdown nnoremap <silent> k :call VSCodeNotify('cursorUp')<CR>
 else
