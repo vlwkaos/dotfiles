@@ -104,7 +104,7 @@ if exists('g:vscode')
     nnoremap <silent> <Leader>rn :RenameSymbol<CR>
     " find in files, query: word under caret
     noremap <silent> <Leader>/ :FindInFile<CR>
-    noremap <silent> <Leader>R :ReplaceInFile<CR>
+    noremap <silent> <Leader>rf :ReplaceInFile<CR>
     " save all
     noremap <silent> <Leader>sa :SaveAllFiles<CR>
     " goto error mark 
@@ -129,6 +129,7 @@ if exists('g:vscode')
     nnoremap <Leader>rp :%s///g
     " replace selected
     vmap <Leader>rp y:%s/<C-R>*//g
+    " use gj gk in markdown files
     autocmd FileType markdown nnoremap <silent> j :call VSCodeNotify('cursorDown')<CR>
     autocmd FileType markdown nnoremap <silent> k :call VSCodeNotify('cursorUp')<CR>
 else
