@@ -52,7 +52,7 @@ nnoremap * *N
 vnoremap * y/\V<C-R>*<CR>N
 
 if exists('g:vscode')
-    " VSCode extension
+    " VSCode 
     command! RenameSymbol call VSCodeNotify('editor.action.rename')
     " tab commands define
     command! Tabcgroup call VSCodeNotify('workbench.action.closeEditorsInGroup')
@@ -78,6 +78,7 @@ if exists('g:vscode')
     endfunction
     command! NextConflict call VSCodeNotify('merge-conflict.next')
     command! PrevConflict call VSCodeNotify('merge-conflict.previous')
+    command! SearchSymbol call VSCodeNotify('workbench.action.gotoSymbol')
     " Git staging
     command! GitStatus call VSCodeNotify('workbench.scm.focus')
     command! HunkStage call VSCodeNotify('git.stageSelectedRanges')
@@ -104,6 +105,7 @@ if exists('g:vscode')
     nnoremap <silent> <Leader>rn :RenameSymbol<CR>
     " find in files, query: word under caret
     noremap <silent> <Leader>/ :FindInFile<CR>
+    noremap <silent> ? :SearchSymbol<CR>
     noremap <silent> <Leader>rf :ReplaceInFile<CR>
     " save all
     noremap <silent> <Leader>sa :SaveAllFiles<CR>
