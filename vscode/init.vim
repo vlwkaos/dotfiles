@@ -4,6 +4,7 @@ Plug 'unblevable/quick-scope'
 Plug 'tpope/vim-repeat'
 Plug 'justinmk/vim-sneak'
 Plug 'tpope/vim-surround'
+Plug 'wellle/targets.vim'
 call plug#end()
 " plugin settings
 
