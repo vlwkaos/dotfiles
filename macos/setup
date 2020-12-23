@@ -1,0 +1,9 @@
+#!/bin/bash
+USER_HOME=$(eval echo ~${SUDO_USER})
+[ ! -d "$USER_HOME/.dotfiles" ] && mv "$USER_HOME/dotfiles" "$USER_HOME/.dotfiles"
+echo "Setting Keybinding for Home&End..."
+mkdir -p "$USER_HOME/Library/KeyBindings/"
+echo '{\n  "\UF729"  = moveToBeginningOfParagraph:; // home\n  "\UF72B"  = moveToEndOfParagraph:; // end\n}' > "$USER_HOME/Library/KeyBindings/DefaultKeyBinding.dict"
+echo "Done!"
+
+
