@@ -5,5 +5,6 @@ echo "Setting Keybinding for Home&End..."
 mkdir -p "$USER_HOME/Library/KeyBindings/"
 echo '{\n  "\UF729"  = moveToBeginningOfParagraph:; // home\n  "\UF72B"  = moveToEndOfParagraph:; // end\n}' > "$USER_HOME/Library/KeyBindings/DefaultKeyBinding.dict"
 echo "Done!"
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
 
