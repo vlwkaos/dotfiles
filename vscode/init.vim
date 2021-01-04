@@ -21,9 +21,10 @@ highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=und
 
 " plugin setting end----------------------
 
+set encoding=utf-8
+set fileencoding=utf-8
 " set leader key to <space>
 let mapleader = " "
-set fileencoding=utf-8
 set nowrap
 " ignore case when all lowercase
 set noincsearch
