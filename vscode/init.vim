@@ -67,6 +67,7 @@ if exists('g:vscode')
     command! FindInFile call VSCodeNotify('workbench.action.findInFiles', {'query': expand('<cword>')})
     command! ReplaceInFile call VSCodeNotify('workbench.action.replaceInFiles', {'query': expand('<cword>')})
     command! SaveAllFiles call VSCodeNotify('workbench.action.files.saveAll')
+    command! SaveFile call VSCodeNotify('workbench.action.files.save')
     " editor commands define
     command! NextError call VSCodeNotify('editor.action.marker.next')
     command! NextErrorInFiles call VSCodeNotify('editor.action.marker.nextInFiles')
@@ -110,6 +111,7 @@ if exists('g:vscode')
     noremap <silent> <Leader>F :ReplaceInFile<CR>
     " save all
     noremap <silent> <Leader>sa :SaveAllFiles<CR>
+    noremap <silent> <Leader>ss :SaveFile<CR>
     " goto error mark 
     nnoremap <silent> ]e :NextError<CR>
     nnoremap <silent> [e :PrevError<CR>
