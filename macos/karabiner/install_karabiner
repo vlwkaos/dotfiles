@@ -1,1 +1,4 @@
-karabiner://karabiner/assets/complex_modifications/import?url=https://github.com/vlwkaos/dotfiles/blob/main/macos/karabiner/capslock.json
+#!/bin/bash
+USER_HOME=$(eval echo ~${SUDO_USER})
+[ ! -d "$USER_HOME/.dotfiles" ] && mv "$USER_HOME/dotfiles" "$USER_HOME/.dotfiles"
+ln -sf "$USER_HOME/.dotfiles/macos/karabiner/capslock.json" "$USER_HOME/.config/karabiner/assets/complex_modifications/capslock.json"
