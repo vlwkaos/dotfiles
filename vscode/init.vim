@@ -20,9 +20,9 @@ highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=unde
 highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
 
 " plugin setting end----------------------
-
-set encoding=utf-8
-set fileencoding=utf-8
+language en_US.UTF-8
+set enc=utf-8
+set fencs=utf-8,euckr
 " set leader key to <space>
 let mapleader = " "
 set nowrap
