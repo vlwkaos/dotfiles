@@ -23,6 +23,7 @@ highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=und
 language en_US.UTF-8
 set enc=utf-8
 set fencs=utf-8,euckr
+set imsearch=0
 " set leader key to <space>
 let mapleader = " "
 set nowrap
@@ -52,6 +53,7 @@ nnoremap O Ox<BS>
 " find match, start inplace
 nnoremap * *N
 vnoremap * y/\V<C-R>*<CR>N
+noremap ; n
 
 if exists('g:vscode')
     " VSCode 
