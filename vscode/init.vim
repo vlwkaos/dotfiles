@@ -55,6 +55,14 @@ nnoremap * *N
 vnoremap * y/\V<C-R>*<CR>N
 noremap ; n
 
+func! Subst()
+    call inputsave()
+    let rp = input('Replace To:')
+    call inputrestore()
+    normal! /rp
+endfunc
+
+
 if exists('g:vscode')
     " VSCode 
     command! RenameSymbol call VSCodeNotify('editor.action.rename')
@@ -115,14 +123,14 @@ if exists('g:vscode')
     noremap <silent> <Leader>sa :SaveAllFiles<CR>
     noremap <silent> <Leader>ss :SaveFile<CR>
     " goto error mark 
-    nnoremap <silent> ]e :NextError<CR>
-    nnoremap <silent> [e :PrevError<CR>
+    nnoremap <silent> ]e :NextError<CR>zz
+    nnoremap <silent> [e :PrevError<CR>zz
     nnoremap <silent> ]E :NextErrorInFiles<CR>
     nnoremap <silent> [E :PrevErrorInFiles<CR>
-    nnoremap <silent> ]c :NextChange<CR>
-    nnoremap <silent> [c :PrevChange<CR>
-    nnoremap <silent> ]f :NextConflict<CR>
-    nnoremap <silent> [f :PrevConflict<CR>
+    nnoremap <silent> ]c :NextChange<CR>zz
+    nnoremap <silent> [c :PrevChange<CR>zz
+    nnoremap <silent> ]f :NextConflict<CR>zz
+    nnoremap <silent> [f :PrevConflict<CR>zz
     " Git commands
     nnoremap <silent> <Leader>hs :HunkStage<CR>
     nnoremap <silent> <Leader>hu :HunkUnstage<CR>
