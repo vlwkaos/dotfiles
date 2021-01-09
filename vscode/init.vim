@@ -27,11 +27,12 @@ set imsearch=0
 " set leader key to <space>
 let mapleader = " "
 set nowrap
-" ignore case when all lowercase
+" igasdf case when all lowercase
 set noincsearch
 set ignorecase
 set smartcase
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab
+set undofile
 set noswapfile
 " use system clipboard to copy and paste
 set clipboard+=unnamedplus
@@ -55,12 +56,37 @@ nnoremap * *N
 vnoremap * y/\V<C-R>*<CR>N
 noremap ; n
 
-func! Subst()
+function! s:get_visual_selection()
+    " Why is this not a built-in Vim script function?!
+    let [line_start, column_start] = getpos("'<")[1:2]
+    let [line_end, column_end] = getpos("'>")[1:2]
+    let lines = getline(line_start, line_end)
+    if len(lines) == 0
+        return ''
+    endif
+    let lines[-1] = lines[-1][: column_end - (&selection == 'inclusive' ? 1 : 2)]
+    let lines[0] = lines[0][column_start - 1:]
+    return join(lines, "\n")
+endfunction
+
+func! SubstituteSelected()
+    let selection = s:get_visual_selection()
     call inputsave()
-    let rp = input('Replace To:')
+    let rp = input("Replace '".selection."' with :")
     call inputrestore()
-    normal! /rp
+    execute '%s/'.selection.'/'.rp.'/gc'
 endfunc
+
+func! SubstituteX()
+    call inputsave()
+    let rpthis = input("Pattern :")
+    let rp = input("Replace '".rpthis."' with :")
+    call inputrestore()
+    execute '%s/'.rpthis.'/'.rp.'/gc'
+endfunc
+
+nnoremap <Leader>r :call SubstituteX()<CR>
+vnoremap <Leader>r :call SubstituteSelected()<CR>
 
 
 if exists('g:vscode')
@@ -86,7 +112,7 @@ if exists('g:vscode')
     command! NextChange call VSCodeNotify('workbench.action.editor.nextChange')
     command! PrevChange call VSCodeNotify('workbench.action.editor.previousChange')
     function! ShowChangePreview()
-        call VSCodeNotify('closeDirtyDiff')
+        call VS:call CodeNotify('closeDirtyDiff')
         call VSCodeNotify('editor.action.dirtydiff.next')
     endfunction
     command! NextConflict call VSCodeNotify('merge-conflict.next')
@@ -139,11 +165,6 @@ if exists('g:vscode')
     nnoremap <silent> <Leader>dg :Diffget<CR>
     nnoremap <silent> <Leader>gs :GitStatus<CR>
 
-
-    " replace shortcut
-    nnoremap <Leader>/ :%s///g
-    " replace selected
-    vmap <Leader>/ y:%s/<C-R>*//g
     " use gj gk in markdown files
     autocmd FileType markdown nnoremap <silent> j :call VSCodeNotify('cursorDown')<CR>
     autocmd FileType markdown nnoremap <silent> k :call VSCodeNotify('cursorUp')<CR>
@@ -152,9 +173,4 @@ else
     " show line number in nvim 
     set number
     set mouse=a
-
-    " replace shortcut
-    nnoremap <Leader>r :%s///g<left><left><left>
-    " replace selected
-    vmap <Leader>r y:%s/<C-R>*//g<left><left>
 endif
