@@ -118,7 +118,7 @@ if exists('g:vscode')
     command! NextChange call VSCodeNotify('workbench.action.editor.nextChange')
     command! PrevChange call VSCodeNotify('workbench.action.editor.previousChange')
     function! ShowChangePreview()
-        call VS:call CodeNotify('closeDirtyDiff')
+        call VSCodeNotify('closeDirtyDiff')
         call VSCodeNotify('editor.action.dirtydiff.next')
     endfunction
     command! NextConflict call VSCodeNotify('merge-conflict.next')
