@@ -170,6 +170,8 @@ if exists('g:vscode')
     nnoremap <silent> <Leader>hp :call ShowChangePreview()<CR>
     nnoremap <silent> <Leader>dg :Diffget<CR>
     nnoremap <silent> <Leader>gs :GitStatus<CR>
+    
+    nnoremap <silent> <Leader>/ :SearchSymbol<CR>
 
     " use gj gk in markdown files
     autocmd FileType markdown nnoremap <silent> j :call VSCodeNotify('cursorDown')<CR>
