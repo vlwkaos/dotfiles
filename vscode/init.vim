@@ -91,8 +91,8 @@ func! SubstituteX()
     execute '%s/'.rpthis.'/'.rp.'/gc'
 endfunc
 
-nnoremap <Leader>r :call SubstituteX()<CR>
-vnoremap <Leader>r :call SubstituteSelected()<CR>
+nnoremap <Leader>r :%s///gc
+vnoremap <Leader>r y:%s/<C-R>*//gc
 
 
 if exists('g:vscode')
