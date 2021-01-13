@@ -147,7 +147,7 @@ if exists('g:vscode')
     " find reference
     nnoremap <silent> gr :FindRef<CR>
     " Rename (a.k.a F2)
-    nnoremap <silent> <Leader>rn :RenameSymbol<CR>
+    nnoremap <silent> <F2> :RenameSymbol<CR>
     " find in files, query: word under caret
     noremap <silent> <Leader>f :FindInFile<CR>
     noremap <silent> <Leader>F :ReplaceInFile<CR>
