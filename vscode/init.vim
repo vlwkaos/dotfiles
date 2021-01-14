@@ -106,6 +106,7 @@ if exists('g:vscode')
     " sidebar commands define
     command! ShowActiveFile call VSCodeNotify('workbench.files.action.showActiveFileInExplorer')
     command! FindRef call VSCodeNotify('references-view.findReferences')
+    command! FindImpl call VSCodeNotify('references-view.findImplementations')
     command! FindInFile call VSCodeNotify('workbench.action.findInFiles', {'query': expand('<cword>')})
     command! ReplaceInFile call VSCodeNotify('workbench.action.replaceInFiles', {'query': expand('<cword>')})
     command! SaveAllFiles call VSCodeNotify('workbench.action.files.saveAll')
@@ -147,7 +148,7 @@ if exists('g:vscode')
     noremap <silent> <Leader>i :ShowActiveFile<CR>
     " find reference
     nnoremap <silent> gr :FindRef<CR>
-    noremap <silent> ga :GitBlame<CR>
+    nnoremap <silent> gi :FindImpl<CR>
     " Rename (a.k.a F2)
     nnoremap <silent> <F2> :RenameSymbol<CR>
     " find in files, query: word under caret
@@ -171,7 +172,8 @@ if exists('g:vscode')
     nnoremap <silent> <Leader>hr :HunkRevert<CR>
     nnoremap <silent> <Leader>hp :call ShowChangePreview()<CR>
     nnoremap <silent> <Leader>dg :Diffget<CR>
-    nnoremap <silent> <Leader>gs :GitStatus<CR>
+    nnoremap <silent> gs :GitStatus<CR>
+    nnoremap <silent> ga :GitBlame<CR>
     
     nnoremap <silent> <Leader>/ :SearchSymbol<CR>
 
