@@ -124,12 +124,13 @@ if exists('g:vscode')
     command! NextConflict call VSCodeNotify('merge-conflict.next')
     command! PrevConflict call VSCodeNotify('merge-conflict.previous')
     command! SearchSymbol call VSCodeNotify('workbench.action.gotoSymbol')
-    " Git staging
+    " Git
     command! GitStatus call VSCodeNotify('workbench.scm.focus')
     command! HunkStage call VSCodeNotify('git.stageSelectedRanges')
     command! HunkUnstage call VSCodeNotify('git.unstageSelectedRanges')
     command! HunkRevert call VSCodeNotify('git.revertSelectedRanges')
     command! Diffget call VSCodeNotify('merge-conflict.accept.selection')
+    command! GitBlame call VSCodeNotify('gitlens.toggleFileBlame')
     " tab key to cycle tabs, 
     " must start with Uppercase T, this is vscode workaround
     noremap <silent> <Tab> :Tabnext<CR>
@@ -146,6 +147,7 @@ if exists('g:vscode')
     noremap <silent> <Leader>i :ShowActiveFile<CR>
     " find reference
     nnoremap <silent> gr :FindRef<CR>
+    noremap <silent> ga :GitBlame<CR>
     " Rename (a.k.a F2)
     nnoremap <silent> <F2> :RenameSymbol<CR>
     " find in files, query: word under caret
