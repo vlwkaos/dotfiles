@@ -5,6 +5,8 @@ echo "Setting Keybinding for Home&End..."
 mkdir -p "$USER_HOME/Library/KeyBindings/"
 echo '{\n  "\UF729"  = moveToBeginningOfParagraph:; // home\n  "\UF72B"  = moveToEndOfParagraph:; // end\n}' > "$USER_HOME/Library/KeyBindings/DefaultKeyBinding.dict"
 echo "Done!"
+echo "Enable pressAndHold Key Repeat"
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
-
+echo "Notification Time to 1 second"
+defaults write com.apple.notificationcenterui bannerTime 1
 
