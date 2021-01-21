@@ -1,0 +1,11 @@
+#!/bin/bash
+USER_HOME=$(eval echo ~${SUDO_USER})
+[ ! -d "$USER_HOME/.dotfiles" ] && mv "$USER_HOME/dotfiles" "$USER_HOME/.dotfiles"
+brew install fasd
+brew install fzf
+$(brew --prefix)/opt/fzf/install
+brew install ripgrep
+brew install bat
+brew install fd
+
+ln -sf "$USER_HOME/.dotfiles/macos/.zshrc" "$USER_HOME/.zshrc"
