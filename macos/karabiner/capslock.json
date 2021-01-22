@@ -1369,7 +1369,7 @@
       ]
     },
     {
-      "description": "Hyper Shifter",
+      "description": "Hyper Functions",
       "manipulators": [
         {
           "from": {
@@ -1385,10 +1385,7 @@
           },
           "to": [
             {
-              "key_code": "1",
-              "modifiers": [
-                "left_shift"
-              ]
+              "key_code": "f1"
             }
           ],
           "type": "basic"
@@ -1407,10 +1404,7 @@
           },
           "to": [
             {
-              "key_code": "2",
-              "modifiers": [
-                "left_shift"
-              ]
+              "key_code": "f2"
             }
           ],
           "type": "basic"
@@ -1429,10 +1423,7 @@
           },
           "to": [
             {
-              "key_code": "3",
-              "modifiers": [
-                "left_shift"
-              ]
+              "key_code": "f3"
             }
           ],
           "type": "basic"
@@ -1451,10 +1442,7 @@
           },
           "to": [
             {
-              "key_code": "4",
-              "modifiers": [
-                "left_shift"
-              ]
+              "key_code": "f4"
             }
           ],
           "type": "basic"
@@ -1473,10 +1461,7 @@
           },
           "to": [
             {
-              "key_code": "5",
-              "modifiers": [
-                "left_shift"
-              ]
+              "key_code": "f5"
             }
           ],
           "type": "basic"
@@ -1495,10 +1480,7 @@
           },
           "to": [
             {
-              "key_code": "6",
-              "modifiers": [
-                "left_shift"
-              ]
+              "key_code": "f6"
             }
           ],
           "type": "basic"
@@ -1517,10 +1499,7 @@
           },
           "to": [
             {
-              "key_code": "7",
-              "modifiers": [
-                "left_shift"
-              ]
+              "key_code": "f7"
             }
           ],
           "type": "basic"
@@ -1539,10 +1518,7 @@
           },
           "to": [
             {
-              "key_code": "8",
-              "modifiers": [
-                "left_shift"
-              ]
+              "key_code": "f8"
             }
           ],
           "type": "basic"
@@ -1561,10 +1537,7 @@
           },
           "to": [
             {
-              "key_code": "9",
-              "modifiers": [
-                "left_shift"
-              ]
+              "key_code": "f9"
             }
           ],
           "type": "basic"
@@ -1583,10 +1556,7 @@
           },
           "to": [
             {
-              "key_code": "0",
-              "modifiers": [
-                "left_shift"
-              ]
+              "key_code": "f10"
             }
           ],
           "type": "basic"
@@ -1605,10 +1575,7 @@
           },
           "to": [
             {
-              "key_code": "hyphen",
-              "modifiers": [
-                "left_shift"
-              ]
+              "key_code": "f11"
             }
           ],
           "type": "basic"
@@ -1627,10 +1594,7 @@
           },
           "to": [
             {
-              "key_code": "equal_sign",
-              "modifiers": [
-                "left_shift"
-              ]
+              "key_code": "f12"
             }
           ],
           "type": "basic"
