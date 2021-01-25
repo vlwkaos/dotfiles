@@ -48,6 +48,8 @@ nnoremap <Leader>D "*D
 vnoremap <Leader>d "*d
 nnoremap x "_x
 vnoremap x "_x
+"Paste in visual mode without copying
+xnoremap p pgvy
 " keep indent after new line
 nnoremap o ox<BS>
 nnoremap O Ox<BS>
