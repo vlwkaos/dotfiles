@@ -31,7 +31,7 @@ set nowrap
 set noincsearch
 set ignorecase
 set smartcase
-set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab
+set tabstop=2 softtabstop=2 shiftwidth=2 expandtab smarttab
 set undofile
 set noswapfile
 " use system clipboard to copy and paste
@@ -58,21 +58,18 @@ nnoremap * *N
 vnoremap * y/\V<C-R>*<CR>N
 noremap ; n
 
-function! s:get_visual_selection()
-    " Why is this not a built-in Vim script function?!
-    let [line_start, column_start] = getpos("'<")[1:2]
-    let [line_end, column_end] = getpos("'>")[1:2]
-    let lines = getline(line_start, line_end)
-    if len(lines) == 0
-        return ''
-    endif
-    let lines[-1] = lines[-1][: column_end - (&selection == 'inclusive' ? 1 : 2)]
-    let lines[0] = lines[0][column_start - 1:]
-    return join(lines, "\n")
+function! GetVisualSelection()
+    try
+      let p_save = @p
+      normal! "py
+      return @p
+    finally
+      let @p = p_save
+    endtry
 endfunction
 
 func! SubstituteSelected()
-    let selection = s:get_visual_selection()
+    let selection = @p
     call inputsave()
     let rp = input("Replace '".selection."' with :")
     call inputrestore()
@@ -93,8 +90,9 @@ func! SubstituteX()
     execute '%s/'.rpthis.'/'.rp.'/gc'
 endfunc
 
-nnoremap <Leader>r :%s///gc
-vnoremap <Leader>r y:%s/<C-R>*//gc
+nnoremap <Leader>r :call SubstituteX()<CR>
+" vnoremap <Leader>r "py:%s/<C-R>p//gc
+vnoremap <Leader>r "py:call SubstituteSelected()<CR> 
 
 
 if exists('g:vscode')
@@ -109,8 +107,10 @@ if exists('g:vscode')
     command! ShowActiveFile call VSCodeNotify('workbench.files.action.showActiveFileInExplorer')
     command! FindRef call VSCodeNotify('references-view.findReferences')
     command! FindImpl call VSCodeNotify('references-view.findImplementations')
-    command! FindInFile call VSCodeNotify('workbench.action.findInFiles', {'query': expand('<cword>')})
+    command! FindInFile call VSCodeNotify('workbench.action.findInFiles', {'query': expand('<cword>'))})
+    command! FindInFileS call VSCodeNotify('workbench.action.findInFiles', {'query': @p})
     command! ReplaceInFile call VSCodeNotify('workbench.action.replaceInFiles', {'query': expand('<cword>')})
+    command! ReplaceInFileS call VSCodeNotify('workbench.action.replaceInFiles', {'query': @p})
     command! SaveAllFiles call VSCodeNotify('workbench.action.files.saveAll')
     command! SaveFile call VSCodeNotify('workbench.action.files.save')
     " editor commands define
@@ -154,8 +154,10 @@ if exists('g:vscode')
     " Rename (a.k.a F2)
     nnoremap <silent> <F2> :RenameSymbol<CR>
     " find in files, query: word under caret
-    noremap <silent> <Leader>f :FindInFile<CR>
-    noremap <silent> <Leader>F :ReplaceInFile<CR>
+    nnoremap <silent> <Leader>f :FindInFile<CR>
+    nnoremap <silent> <Leader>F :ReplaceInFile<CR>
+    xnoremap <silent> <Leader>f "py<Esc>:FindInFileS<CR>
+    xnoremap <silent> <Leader>F "py<Esc>:ReplaceInFileS<CR>
     " save all
     noremap <silent> <Leader>sa :SaveAllFiles<CR>
     noremap <silent> <Leader>ss :SaveFile<CR>
