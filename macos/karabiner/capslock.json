@@ -38,6 +38,25 @@
       "manipulators": [
         {
           "from": {
+            "key_code": ",",
+            "modifiers": {
+              "mandatory": [
+                "right_command",
+                "right_control",
+                "right_shift",
+                "right_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": ","
+            }
+          ],
+          "type": "basic"
+        },
+        {
+          "from": {
             "key_code": "h",
             "modifiers": {
               "mandatory": [
