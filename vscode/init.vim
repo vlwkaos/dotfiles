@@ -73,9 +73,6 @@ func! SubstituteSelected()
     call inputsave()
     let rp = input("Replace '".selection."' with :")
     call inputrestore()
-    if empty(rp)
-        return
-    endif
     execute '%s/'.selection.'/'.rp.'/gc'
 endfunc
 
@@ -84,9 +81,6 @@ func! SubstituteX()
     let rpthis = input("Pattern :")
     let rp = input("Replace '".rpthis."' with :")
     call inputrestore()
-    if empty(rp)
-        return
-    endif
     execute '%s/'.rpthis.'/'.rp.'/gc'
 endfunc
 
