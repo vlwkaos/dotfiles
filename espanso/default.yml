@@ -20,7 +20,7 @@ matches:
 
   # todo
   - trigger: ":todo"
-    replace: "// TODO: 박민규 {{date}}"
+    replace: "// TODO: 박민규 {{date}} "
     vars:
       - name: date
         type: date
