@@ -5,8 +5,11 @@ Plug 'tpope/vim-repeat'
 Plug 'justinmk/vim-sneak'
 Plug 'tpope/vim-surround'
 Plug 'wellle/targets.vim'
+Plug 'bkad/CamelCaseMotion'
 call plug#end()
 " plugin settings
+
+let g:camelcasemotion_key = '<leader>'
 
 " sneak, clever mode
 let g:sneak#s_next = 1
