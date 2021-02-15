@@ -38,7 +38,7 @@
       "manipulators": [
         {
           "from": {
-            "key_code": ",",
+            "key_code": "period",
             "modifiers": {
               "mandatory": [
                 "right_command",
@@ -50,7 +50,7 @@
           },
           "to": [
             {
-              "key_code": ","
+              "key_code": "period"
             }
           ],
           "type": "basic"
