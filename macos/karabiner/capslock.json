@@ -48,11 +48,6 @@
               ]
             }
           },
-          "to": [
-            {
-              "key_code": "comma"
-            }
-          ],
           "type": "basic"
         },
         {
@@ -67,11 +62,6 @@
               ]
             }
           },
-          "to": [
-            {
-              "key_code": "period"
-            }
-          ],
           "type": "basic"
         },
         {
