@@ -26,3 +26,11 @@ matches:
         type: date
         params:
           format: "%F"
+          
+  # console.log
+  - trigger: ":log"
+    replace: "console.log($|$)"
+    
+  # console.debug
+  - trigger: ":dbg"
+    replace: "console.debug($|$)"
