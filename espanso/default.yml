@@ -27,10 +27,35 @@ matches:
         params:
           format: "%F"
           
-  # console.log
+  # js console.log
   - trigger: ":log"
     replace: "console.log($|$)"
     
-  # console.debug
+  # js console.debug
   - trigger: ":dbg"
     replace: "console.debug($|$)"
+    
+  # md frontmatter
+  - trigger: ":fm"
+    replace: "---\n
+              title: '$|$'\n
+              author: 'vlwkaos'\n
+              created: {{date}}\n
+              published: false\n
+              ---\n"
+    vars:
+      - name: date
+        type: date
+        params:
+          format: "%Y-%m-%d:%H:%M:%S"
+          
+
+  # md img insert 
+  - trigger: ":img"
+    replace: "<p align='center'>\n
+              <img loading='lazy' src='$|$'/>\n
+              <br><span>caption</span></p>"
+              
+  # md embed
+  - trigger: ":embed"
+    replace: "<div class='embed-wrapper'>$|$</div>"
