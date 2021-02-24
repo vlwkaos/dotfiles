@@ -37,12 +37,7 @@ matches:
     
   # md frontmatter
   - trigger: ":fm"
-    replace: "---\n
-              title: '$|$'\n
-              author: 'vlwkaos'\n
-              created: {{date}}\n
-              published: false\n
-              ---\n"
+    replace: "---\ntitle: '$|$'\nauthor: 'vlwkaos'\ncreated: {{date}}\npublished: false\n---\n"
     vars:
       - name: date
         type: date
@@ -52,9 +47,7 @@ matches:
 
   # md img insert 
   - trigger: ":img"
-    replace: "<p align='center'>\n
-              <img loading='lazy' src='$|$'/>\n
-              <br><span>caption</span></p>"
+    replace: "<p align='center'>\n<img loading='lazy' src='$|$'/>\n<br><span>caption</span></p>"
               
   # md embed
   - trigger: ":embed"
