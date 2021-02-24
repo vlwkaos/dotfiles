@@ -123,7 +123,6 @@ if exists('g:vscode')
     endfunction
     command! NextConflict call VSCodeNotify('merge-conflict.next')
     command! PrevConflict call VSCodeNotify('merge-conflict.previous')
-    command! SearchSymbol call VSCodeNotify('workbench.action.gotoSymbol')
     " Git
     command! GitStatus call VSCodeNotify('workbench.scm.focus')
     command! HunkStage call VSCodeNotify('git.stageSelectedRanges')
@@ -136,9 +135,9 @@ if exists('g:vscode')
     noremap <silent> <Tab> :Tabnext<CR>
     noremap <silent> <S-Tab> :Tabprev<CR>
     " quit other tabs, quit right
-    noremap <silent> <Leader>qa :Tabcgroup<CR>
-    noremap <silent> <Leader>qo :Tabonly<CR>
-    noremap <silent> <Leader>qr :Tabcright<CR>
+    noremap <silent> <Leader>ta :Tabcgroup<CR>
+    noremap <silent> <Leader>to :Tabonly<CR>
+    noremap <silent> <Leader>tr :Tabcright<CR>
     " split move tabs
     noremap <silent> <Leader><Leader>l :Tabmover<CR>
     noremap <silent> <Leader><Leader>h :Tabmovel<CR>
@@ -175,8 +174,6 @@ if exists('g:vscode')
     nnoremap <silent> <Leader>dg :Diffget<CR>
     nnoremap <silent> gs :GitStatus<CR>
     nnoremap <silent> ga :GitBlame<CR>
-    
-    nnoremap <silent> <Leader>/ :SearchSymbol<CR>
 
     " use gj gk in markdown files
     autocmd FileType markdown nnoremap <silent> j :call VSCodeNotify('cursorDown')<CR>
