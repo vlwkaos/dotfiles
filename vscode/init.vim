@@ -56,6 +56,11 @@ xnoremap p pgvy
 " keep indent after new line
 nnoremap o ox<BS>
 nnoremap O Ox<BS>
+" select line without \n
+vnoremap al :<C-U>normal 0v$h<CR>
+omap al :normal val<CR>
+vnoremap il :<C-U>normal ^vg_<CR>
+omap il :normal vil<CR>
 " find match, start inplace
 nnoremap * *N
 vnoremap * y/\V<C-R>*<CR>N
