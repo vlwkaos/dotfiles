@@ -103,8 +103,10 @@ if exists('g:vscode')
     " tab commands define
     command! Tabcgroup call VSCodeNotify('workbench.action.closeEditorsInGroup')
     command! Tabcright call VSCodeNotify('workbench.action.closeEditorsToTheRight')
-    command! Tabmovel call VSCodeNotify('workbench.action.moveEditorToLeftGroup')
-    command! Tabmover call VSCodeNotify('workbench.action.moveEditorToRightGroup')
+    command! Tabmovelg call VSCodeNotify('workbench.action.moveEditorToLeftGroup')
+    command! Tabmoverg call VSCodeNotify('workbench.action.moveEditorToRightGroup')
+    command! Tabmovel call VSCodeNotify('workbench.action.moveEditorLeftInGroup')
+    command! Tabmover call VSCodeNotify('workbench.action.moveEditorRightInGroup')
     " sidebar commands define
     command! ShowActiveFile call VSCodeNotify('workbench.files.action.showActiveFileInExplorer')
     command! FindRef call VSCodeNotify('references-view.findReferences')
@@ -144,8 +146,10 @@ if exists('g:vscode')
     noremap <silent> <Leader>to :Tabonly<CR>
     noremap <silent> <Leader>tr :Tabcright<CR>
     " split move tabs
-    noremap <silent> <Leader><Leader>l :Tabmover<CR>
-    noremap <silent> <Leader><Leader>h :Tabmovel<CR>
+    noremap <silent> <Leader>tl :Tabmoverg<CR>
+    noremap <silent> <Leader>th :Tabmovelg<CR>
+    noremap <silent> <Leader><Tab> :Tabmover<CR>
+    noremap <silent> <Leader><S-Tab> :Tabmovel<CR>
     noremap X :Tabclose<CR>
     " reveal file in explorer
     noremap <silent> <Leader>i :ShowActiveFile<CR>
