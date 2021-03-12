@@ -137,6 +137,8 @@ if exists('g:vscode')
     command! HunkRevert call VSCodeNotify('git.revertSelectedRanges')
     command! Diffget call VSCodeNotify('merge-conflict.accept.selection')
     command! GitBlame call VSCodeNotify('gitlens.toggleFileBlame')
+    command! GitPreviousRevision call VSCodeNotify('gitlens.diffWithPrevious')
+    command! GitNextRevision call VSCodeNotify('gitlens.diffWithNext')
     " tab key to cycle tabs, 
     " must start with Uppercase T, this is vscode workaround
     noremap <silent> <Tab> :Tabnext<CR>
@@ -183,6 +185,8 @@ if exists('g:vscode')
     nnoremap <silent> <Leader>dg :Diffget<CR>
     nnoremap <silent> gs :GitStatus<CR>
     nnoremap <silent> ga :GitBlame<CR>
+    nnoremap <silent> gp :GitPreviousRevision<CR>
+    nnoremap <silent> gn :GitNextRevision<CR>
 
     " use gj gk in markdown files
     autocmd FileType markdown nnoremap <silent> j :call VSCodeNotify('cursorDown')<CR>
