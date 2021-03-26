@@ -107,6 +107,7 @@ if exists('g:vscode')
     command! Tabmoverg call VSCodeNotify('workbench.action.moveEditorToRightGroup')
     command! Tabmovel call VSCodeNotify('workbench.action.moveEditorLeftInGroup')
     command! Tabmover call VSCodeNotify('workbench.action.moveEditorRightInGroup')
+    command! EditorViewSizeToggle call VSCodeNotify('workbench.action.toggleEditorWidths')
     " sidebar commands define
     command! ShowActiveFile call VSCodeNotify('workbench.files.action.showActiveFileInExplorer')
     command! FindRef call VSCodeNotify('references-view.findReferences')
@@ -152,7 +153,7 @@ if exists('g:vscode')
     noremap <silent> <Leader>th :Tabmovelg<CR>
     noremap <silent> <Leader><Tab> :Tabmover<CR>
     noremap <silent> <Leader><S-Tab> :Tabmovel<CR>
-    noremap X :Tabclose<CR>
+    noremap <silent> <Leader>ts :EditorViewSizeToggle<CR>
     " reveal file in explorer
     noremap <silent> <Leader>i :ShowActiveFile<CR>
     " find reference
