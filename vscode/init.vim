@@ -79,6 +79,7 @@ endfunction
 func! SubstituteSelected()
     let selection = @p
     call inputsave()
+    " execute '/'.selection <CR>
     let rp = input("Replace '".selection."' with :")
     call inputrestore()
     execute '%s/'.selection.'/'.rp.'/gc'
@@ -87,18 +88,16 @@ endfunc
 func! SubstituteX()
     call inputsave()
     let rpthis = input("Pattern :")
+    " execute '/'.rpthis <CR>
     let rp = input("Replace '".rpthis."' with :")
     call inputrestore()
     execute '%s/'.rpthis.'/'.rp.'/gc'
 endfunc
 
-nnoremap <Leader>r :call SubstituteX()<CR>
-" vnoremap <Leader>r "py:%s/<C-R>p//gc
-vnoremap <Leader>r "py:call SubstituteSelected()<CR> 
-
 
 if exists('g:vscode')
     " VSCode 
+    command! ShowAllCommands call VSCodeNotify('workbench.action.showCommands')
     command! RenameSymbol call VSCodeNotify('editor.action.rename')
     " tab commands define
     command! Tabcgroup call VSCodeNotify('workbench.action.closeEditorsInGroup')
@@ -116,6 +115,11 @@ if exists('g:vscode')
     command! FindInFileS call VSCodeNotify('workbench.action.findInFiles', {'query': @p})
     command! ReplaceInFile call VSCodeNotify('workbench.action.replaceInFiles', {'query': expand('<cword>')})
     command! ReplaceInFileS call VSCodeNotify('workbench.action.replaceInFiles', {'query': @p})
+    " replace command
+    command! AddSelectionToNextFindMatch call VSCodeNotify('editor.action.addSelectionToNextFindMatch', {'query': expand('<cword>')})
+    command! AddSelectionToNextFindMatchS call VSCodeNotify('editor.action.addSelectionToNextFindMatch', {'query': @p})
+    command! ReplaceVSCode call VSCodeNotify('editor.action.startFindReplaceAction')
+    " save
     command! SaveAllFiles call VSCodeNotify('workbench.action.files.saveAll')
     command! SaveFile call VSCodeNotify('workbench.action.files.save')
     " editor commands define
@@ -140,6 +144,7 @@ if exists('g:vscode')
     command! GitBlame call VSCodeNotify('gitlens.toggleFileBlame')
     command! GitPreviousRevision call VSCodeNotify('gitlens.diffWithPrevious')
     command! GitNextRevision call VSCodeNotify('gitlens.diffWithNext')
+    noremap <silent> <Leader><Leader> :ShowAllCommands<CR>
     " tab key to cycle tabs, 
     " must start with Uppercase T, this is vscode workaround
     noremap <silent> <Tab> :Tabnext<CR>
@@ -163,9 +168,13 @@ if exists('g:vscode')
     nnoremap <silent> <F2> :RenameSymbol<CR>
     " find in files, query: word under caret
     nnoremap <silent> <Leader>f :FindInFile<CR>
-    nnoremap <silent> <Leader>F :ReplaceInFile<CR>
+    " nnoremap <silent> <Leader>r :AddSelectionToNextFindMatch<CR>:ReplaceVSCode<CR>
+    nnoremap <Leader>r :call SubstituteX()<CR>
+    nnoremap <silent> <Leader>R :ReplaceInFile<CR>
     xnoremap <silent> <Leader>f "py<Esc>:FindInFileS<CR>
-    xnoremap <silent> <Leader>F "py<Esc>:ReplaceInFileS<CR>
+    " vnoremap <silent> <Leader>r "py<Esc>:AddSelectionToNextFindMatchS<CR>:ReplaceVSCode<CR>
+    vnoremap <Leader>r "py:call SubstituteSelected()<CR> 
+    xnoremap <silent> <Leader>R "py<Esc>:ReplaceInFileS<CR>
     " save all
     noremap <silent> <Leader>sa :SaveAllFiles<CR>
     noremap <silent> <Leader>ss :SaveFile<CR>
@@ -186,8 +195,8 @@ if exists('g:vscode')
     nnoremap <silent> <Leader>dg :Diffget<CR>
     nnoremap <silent> gs :GitStatus<CR>
     nnoremap <silent> ga :GitBlame<CR>
-    nnoremap <silent> gp :GitPreviousRevision<CR>
-    nnoremap <silent> gn :GitNextRevision<CR>
+    nnoremap <silent> [p :GitPreviousRevision<CR>
+    nnoremap <silent> ]n :GitNextRevision<CR>
 
     " use gj gk in markdown files
     autocmd FileType markdown nnoremap <silent> j :call VSCodeNotify('cursorDown')<CR>
@@ -197,4 +206,7 @@ else
     " show line number in nvim 
     set number
     set mouse=a
+    
+    nnoremap <Leader>r :%s///gc<Left><Left><Left><Left>
+    vnoremap <Leader>r "py:%s/<C-R>p//gc<Left><Left><Left>
 endif
