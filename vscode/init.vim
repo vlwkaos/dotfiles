@@ -195,8 +195,8 @@ if exists('g:vscode')
     nnoremap <silent> <Leader>dg :Diffget<CR>
     nnoremap <silent> gs :GitStatus<CR>
     nnoremap <silent> ga :GitBlame<CR>
-    nnoremap <silent> [p :GitPreviousRevision<CR>
-    nnoremap <silent> ]n :GitNextRevision<CR>
+    nnoremap <silent> [r :GitPreviousRevision<CR>
+    nnoremap <silent> ]r :GitNextRevision<CR>
 
     " use gj gk in markdown files
     autocmd FileType markdown nnoremap <silent> j :call VSCodeNotify('cursorDown')<CR>
