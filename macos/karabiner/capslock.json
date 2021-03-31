@@ -500,7 +500,7 @@
           "to": [
             {
               "mouse_key": {
-                "vertical_wheel": 64
+                "vertical_wheel": -64
               }
             }
           ]
@@ -524,7 +524,7 @@
           "to": [
             {
               "mouse_key": {
-                "vertical_wheel": 128
+                "vertical_wheel": -128
               }
             }
           ]
@@ -725,7 +725,7 @@
           "to": [
             {
               "mouse_key": {
-                "vertical_wheel": -64
+                "vertical_wheel": 64
               }
             }
           ]
@@ -749,7 +749,7 @@
           "to": [
             {
               "mouse_key": {
-                "vertical_wheel": -128
+                "vertical_wheel": 128
               }
             }
           ]
