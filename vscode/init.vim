@@ -65,6 +65,8 @@ omap il :normal vil<CR>
 nnoremap * *N
 vnoremap * y/\V<C-R>*<CR>N
 noremap ; n
+" last non-blank character
+noremap $ g_
 
 function! GetVisualSelection()
     try
