@@ -99,44 +99,22 @@ endfunc
 
 if exists('g:vscode')
     " VSCode 
-    command! ShowAllCommands call VSCodeNotify('workbench.action.showCommands')
-    command! RenameSymbol call VSCodeNotify('editor.action.rename')
+    command! Whichkey call VSCodeNotify('whichkey.show')
+    noremap ' :Whichkey<CR>
     " tab commands define
-    command! Tabcgroup call VSCodeNotify('workbench.action.closeEditorsInGroup')
-    command! Tabcright call VSCodeNotify('workbench.action.closeEditorsToTheRight')
-    command! Tabmovelg call VSCodeNotify('workbench.action.moveEditorToLeftGroup')
-    command! Tabmoverg call VSCodeNotify('workbench.action.moveEditorToRightGroup')
-    command! Tabmovel call VSCodeNotify('workbench.action.moveEditorLeftInGroup')
-    command! Tabmover call VSCodeNotify('workbench.action.moveEditorRightInGroup')
-    command! EditorViewSizeToggle call VSCodeNotify('workbench.action.toggleEditorWidths')
     " sidebar commands define
     command! ShowActiveFile call VSCodeNotify('workbench.files.action.showActiveFileInExplorer')
     command! FindRef call VSCodeNotify('references-view.findReferences')
     command! FindImpl call VSCodeNotify('references-view.findImplementations')
-    command! FindInFile call VSCodeNotify('workbench.action.findInFiles', {'query': expand('<cword>')})
-    command! FindInFileS call VSCodeNotify('workbench.action.findInFiles', {'query': @p})
-    command! ReplaceInFile call VSCodeNotify('workbench.action.replaceInFiles', {'query': expand('<cword>')})
-    command! ReplaceInFileS call VSCodeNotify('workbench.action.replaceInFiles', {'query': @p})
     " replace command
-    command! AddSelectionToNextFindMatch call VSCodeNotify('editor.action.addSelectionToNextFindMatch', {'query': expand('<cword>')})
-    command! AddSelectionToNextFindMatchS call VSCodeNotify('editor.action.addSelectionToNextFindMatch', {'query': @p})
-    command! ReplaceVSCode call VSCodeNotify('editor.action.startFindReplaceAction')
     " save
     command! SaveAllFiles call VSCodeNotify('workbench.action.files.saveAll')
     command! SaveFile call VSCodeNotify('workbench.action.files.save')
     " editor commands define
-    command! NextError call VSCodeNotify('editor.action.marker.next')
-    command! NextErrorInFiles call VSCodeNotify('editor.action.marker.nextInFiles')
-    command! PrevError call VSCodeNotify('editor.action.marker.prev')
-    command! PrevErrorInFiles call VSCodeNotify('editor.action.marker.prevInFiles')
-    command! NextChange call VSCodeNotify('workbench.action.editor.nextChange')
-    command! PrevChange call VSCodeNotify('workbench.action.editor.previousChange')
     function! ShowChangePreview()
         call VSCodeNotify('closeDirtyDiff')
         call VSCodeNotify('editor.action.dirtydiff.next')
     endfunction
-    command! NextConflict call VSCodeNotify('merge-conflict.next')
-    command! PrevConflict call VSCodeNotify('merge-conflict.previous')
     " Git
     command! GitStatus call VSCodeNotify('workbench.scm.focus')
     command! HunkStage call VSCodeNotify('git.stageSelectedRanges')
@@ -144,10 +122,17 @@ if exists('g:vscode')
     command! HunkRevert call VSCodeNotify('git.revertSelectedRanges')
     command! Diffget call VSCodeNotify('merge-conflict.accept.selection')
     command! GitBlame call VSCodeNotify('gitlens.toggleFileBlame')
-    command! GitPreviousRevision call VSCodeNotify('gitlens.diffWithPrevious')
-    command! GitNextRevision call VSCodeNotify('gitlens.diffWithNext')
+    " command palette
+    command! ShowAllCommands call VSCodeNotify('workbench.action.showCommands')
     noremap <silent> <Leader><Leader> :ShowAllCommands<CR>
-    " tab key to cycle tabs, 
+    " tab commands
+    command! Tabcgroup call VSCodeNotify('workbench.action.closeEditorsInGroup')
+    command! Tabcright call VSCodeNotify('workbench.action.closeEditorsToTheRight')
+    command! Tabmovelg call VSCodeNotify('workbench.action.moveEditorToLeftGroup')
+    command! Tabmoverg call VSCodeNotify('workbench.action.moveEditorToRightGroup')
+    command! Tabmovel call VSCodeNotify('workbench.action.moveEditorLeftInGroup')
+    command! Tabmover call VSCodeNotify('workbench.action.moveEditorRightInGroup')
+    command! EditorViewSizeToggle call VSCodeNotify('workbench.action.toggleEditorWidths')
     " must start with Uppercase T, this is vscode workaround
     noremap <silent> <Tab> :Tabnext<CR>
     noremap <silent> <S-Tab> :Tabprev<CR>
@@ -167,28 +152,39 @@ if exists('g:vscode')
     nnoremap <silent> gr :FindRef<CR>
     nnoremap <silent> gi :FindImpl<CR>
     " Rename (a.k.a F2)
+    command! RenameSymbol call VSCodeNotify('editor.action.rename')
     nnoremap <silent> <F2> :RenameSymbol<CR>
     " find in files, query: word under caret
+    command! FindInFile call VSCodeNotify('workbench.action.findInFiles', {'query': expand('<cword>')})
+    command! FindInFileS call VSCodeNotify('workbench.action.findInFiles', {'query': @p})
     nnoremap <silent> <Leader>f :FindInFile<CR>
-    " nnoremap <silent> <Leader>r :AddSelectionToNextFindMatch<CR>:ReplaceVSCode<CR>
-    nnoremap <Leader>r :call SubstituteX()<CR>
-    nnoremap <silent> <Leader>R :ReplaceInFile<CR>
     xnoremap <silent> <Leader>f "py<Esc>:FindInFileS<CR>
-    " vnoremap <silent> <Leader>r "py<Esc>:AddSelectionToNextFindMatchS<CR>:ReplaceVSCode<CR>
+    command! ReplaceInFile call VSCodeNotify('workbench.action.replaceInFiles', {'query': expand('<cword>')})
+    command! ReplaceInFileS call VSCodeNotify('workbench.action.replaceInFiles', {'query': @p})
+    nnoremap <Leader>r :call SubstituteX()<CR>
     vnoremap <Leader>r "py:call SubstituteSelected()<CR> 
+    nnoremap <silent> <Leader>R :ReplaceInFile<CR>
     xnoremap <silent> <Leader>R "py<Esc>:ReplaceInFileS<CR>
     " save all
     noremap <silent> <Leader>sa :SaveAllFiles<CR>
     noremap <silent> <Leader>ss :SaveFile<CR>
     " goto error mark 
-    nnoremap <silent> ]e :NextError<CR>zz
-    nnoremap <silent> [e :PrevError<CR>zz
-    nnoremap <silent> ]E :NextErrorInFiles<CR>
-    nnoremap <silent> [E :PrevErrorInFiles<CR>
-    nnoremap <silent> ]c :NextChange<CR>zz
-    nnoremap <silent> [c :PrevChange<CR>zz
-    nnoremap <silent> ]f :NextConflict<CR>zz
-    nnoremap <silent> [f :PrevConflict<CR>zz
+    command! NextChange call VSCodeNotify('workbench.action.editor.nextChange')
+    command! PrevChange call VSCodeNotify('workbench.action.editor.previousChange')
+    nnoremap <silent> ]e :NextError<CR>
+    nnoremap <silent> [e :PrevError<CR>
+    command! NextChange call VSCodeNotify('workbench.action.editor.nextChange')
+    command! PrevChange call VSCodeNotify('workbench.action.editor.previousChange')
+    nnoremap <silent> ]c :NextChange<CR>
+    nnoremap <silent> [c :PrevChange<CR>
+    command! NextConflict call VSCodeNotify('merge-conflict.next')
+    command! PrevConflict call VSCodeNotify('merge-conflict.previous')
+    nnoremap <silent> ]f :NextConflict<CR>
+    nnoremap <silent> [f :PrevConflict<CR>
+    command! GitPreviousRevision call VSCodeNotify('gitlens.diffWithPrevious')
+    command! GitNextRevision call VSCodeNotify('gitlens.diffWithNext')
+    nnoremap <silent> [r :GitPreviousRevision<CR>
+    nnoremap <silent> ]r :GitNextRevision<CR>
     " Git commands
     nnoremap <silent> <Leader>hs :HunkStage<CR>
     nnoremap <silent> <Leader>hu :HunkUnstage<CR>
@@ -197,8 +193,6 @@ if exists('g:vscode')
     nnoremap <silent> <Leader>dg :Diffget<CR>
     nnoremap <silent> gs :GitStatus<CR>
     nnoremap <silent> ga :GitBlame<CR>
-    nnoremap <silent> [r :GitPreviousRevision<CR>
-    nnoremap <silent> ]r :GitNextRevision<CR>
 
     " use gj gk in markdown files
     autocmd FileType markdown nnoremap <silent> j :call VSCodeNotify('cursorDown')<CR>
