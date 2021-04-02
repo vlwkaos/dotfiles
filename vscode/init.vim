@@ -139,10 +139,6 @@ if exists('g:vscode')
     command! PrevConflict call VSCodeNotify('merge-conflict.previous')
     nnoremap <silent> ]f :NextConflict<CR>
     nnoremap <silent> [f :PrevConflict<CR>
-    command! GitPreviousRevision call VSCodeNotify('gitlens.diffWithPrevious')
-    command! GitNextRevision call VSCodeNotify('gitlens.diffWithNext')
-    nnoremap <silent> [r :GitPreviousRevision<CR>
-    nnoremap <silent> ]r :GitNextRevision<CR>
 
     " use gj gk in markdown files
     autocmd FileType markdown nnoremap <silent> j :call VSCodeNotify('cursorDown')<CR>
