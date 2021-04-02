@@ -102,8 +102,6 @@ if exists('g:vscode')
     " VSCode 
     command! Whichkey call VSCodeNotify('whichkey.show')
     noremap ' :Whichkey<CR>
-    " sidebar commands define
-    command! ShowActiveFile call VSCodeNotify('workbench.files.action.showActiveFileInExplorer')
     " must start with Uppercase T, this is vscode workaround
     noremap <silent> <Tab> :Tabnext<CR>
     noremap <silent> <S-Tab> :Tabprev<CR>
