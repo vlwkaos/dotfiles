@@ -101,54 +101,16 @@ if exists('g:vscode')
     " VSCode 
     command! Whichkey call VSCodeNotify('whichkey.show')
     noremap ' :Whichkey<CR>
-    " tab commands define
     " sidebar commands define
     command! ShowActiveFile call VSCodeNotify('workbench.files.action.showActiveFileInExplorer')
-    command! FindRef call VSCodeNotify('references-view.findReferences')
-    command! FindImpl call VSCodeNotify('references-view.findImplementations')
-    " replace command
-    " save
-    command! SaveAllFiles call VSCodeNotify('workbench.action.files.saveAll')
-    command! SaveFile call VSCodeNotify('workbench.action.files.save')
-    " editor commands define
-    function! ShowChangePreview()
-        call VSCodeNotify('closeDirtyDiff')
-        call VSCodeNotify('editor.action.dirtydiff.next')
-    endfunction
-    " Git
-    command! GitStatus call VSCodeNotify('workbench.scm.focus')
-    command! HunkStage call VSCodeNotify('git.stageSelectedRanges')
-    command! HunkUnstage call VSCodeNotify('git.unstageSelectedRanges')
-    command! HunkRevert call VSCodeNotify('git.revertSelectedRanges')
-    command! Diffget call VSCodeNotify('merge-conflict.accept.selection')
-    command! GitBlame call VSCodeNotify('gitlens.toggleFileBlame')
-    " command palette
-    command! ShowAllCommands call VSCodeNotify('workbench.action.showCommands')
-    noremap <silent> <Leader><Leader> :ShowAllCommands<CR>
-    " tab commands
-    command! Tabcgroup call VSCodeNotify('workbench.action.closeEditorsInGroup')
-    command! Tabcright call VSCodeNotify('workbench.action.closeEditorsToTheRight')
-    command! Tabmovelg call VSCodeNotify('workbench.action.moveEditorToLeftGroup')
-    command! Tabmoverg call VSCodeNotify('workbench.action.moveEditorToRightGroup')
-    command! Tabmovel call VSCodeNotify('workbench.action.moveEditorLeftInGroup')
-    command! Tabmover call VSCodeNotify('workbench.action.moveEditorRightInGroup')
-    command! EditorViewSizeToggle call VSCodeNotify('workbench.action.toggleEditorWidths')
     " must start with Uppercase T, this is vscode workaround
     noremap <silent> <Tab> :Tabnext<CR>
     noremap <silent> <S-Tab> :Tabprev<CR>
-    " quit other tabs, quit right
-    noremap <silent> <Leader>ta :Tabcgroup<CR>
-    noremap <silent> <Leader>to :Tabonly<CR>
-    noremap <silent> <Leader>tr :Tabcright<CR>
-    " split move tabs
-    noremap <silent> <Leader>tl :Tabmoverg<CR>
-    noremap <silent> <Leader>th :Tabmovelg<CR>
-    noremap <silent> <Leader><Tab> :Tabmover<CR>
-    noremap <silent> <Leader><S-Tab> :Tabmovel<CR>
-    noremap <silent> <Leader>ts :EditorViewSizeToggle<CR>
     " reveal file in explorer
     noremap <silent> <Leader>i :ShowActiveFile<CR>
     " find reference
+    command! FindRef call VSCodeNotify('references-view.findReferences')
+    command! FindImpl call VSCodeNotify('references-view.findImplementations')
     nnoremap <silent> gr :FindRef<CR>
     nnoremap <silent> gi :FindImpl<CR>
     " Rename (a.k.a F2)
@@ -165,9 +127,6 @@ if exists('g:vscode')
     vnoremap <Leader>r "py:call SubstituteSelected()<CR> 
     nnoremap <silent> <Leader>R :ReplaceInFile<CR>
     xnoremap <silent> <Leader>R "py<Esc>:ReplaceInFileS<CR>
-    " save all
-    noremap <silent> <Leader>sa :SaveAllFiles<CR>
-    noremap <silent> <Leader>ss :SaveFile<CR>
     " goto error mark 
     command! NextChange call VSCodeNotify('workbench.action.editor.nextChange')
     command! PrevChange call VSCodeNotify('workbench.action.editor.previousChange')
@@ -185,14 +144,6 @@ if exists('g:vscode')
     command! GitNextRevision call VSCodeNotify('gitlens.diffWithNext')
     nnoremap <silent> [r :GitPreviousRevision<CR>
     nnoremap <silent> ]r :GitNextRevision<CR>
-    " Git commands
-    nnoremap <silent> <Leader>hs :HunkStage<CR>
-    nnoremap <silent> <Leader>hu :HunkUnstage<CR>
-    nnoremap <silent> <Leader>hr :HunkRevert<CR>
-    nnoremap <silent> <Leader>hp :call ShowChangePreview()<CR>
-    nnoremap <silent> <Leader>dg :Diffget<CR>
-    nnoremap <silent> gs :GitStatus<CR>
-    nnoremap <silent> ga :GitBlame<CR>
 
     " use gj gk in markdown files
     autocmd FileType markdown nnoremap <silent> j :call VSCodeNotify('cursorDown')<CR>
