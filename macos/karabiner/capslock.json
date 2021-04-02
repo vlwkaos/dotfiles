@@ -1098,10 +1098,10 @@
           ]
         },
         {
-          "description": "command + i = shift + home",
+          "description": "command + n = shift + home",
           "type": "basic",
           "from": {
-            "key_code": "i",
+            "key_code": "n",
             "modifiers": {
               "mandatory": [
                 "left_command",
@@ -1125,7 +1125,7 @@
           "description": "option + command + i = select whole line to head",
           "type": "basic",
           "from": {
-            "key_code": "i",
+            "key_code": "n",
             "modifiers": {
               "mandatory": [
                 "left_option",
@@ -1151,55 +1151,6 @@
               "key_code": "home",
               "modifiers": [
                 "left_shift"
-              ]
-            }
-          ]
-        },
-        {
-          "description": "shift + i = command + shift + ` (prev window within app)",
-          "type": "basic",
-          "from": {
-            "key_code": "i",
-            "modifiers": {
-              "mandatory": [
-                "left_shift",
-                
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "grave_accent_and_tilde",
-              "modifiers": [
-                "left_command",
-                "left_shift"
-              ]
-            }
-          ]
-        },
-        {
-          "description": "control + i = command + h (hide current window)",
-          "type": "basic",
-          "from": {
-            "key_code": "i",
-            "modifiers": {
-              "mandatory": [
-                "left_control",
-                
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "h",
-              "modifiers": [
-                "left_command"
               ]
             }
           ]
@@ -1296,10 +1247,10 @@
           ]
         },
         {
-          "description": " i = home",
+          "description": " n = home",
           "type": "basic",
           "from": {
-            "key_code": "i",
+            "key_code": "n",
             "modifiers": {
               "mandatory": [
                 
@@ -1316,10 +1267,10 @@
           ]
         },
         {
-          "description": "command + o = shift + end",
+          "description": "command + ; = shift + end",
           "type": "basic",
           "from": {
-            "key_code": "o",
+            "key_code": "semicolon",
             "modifiers": {
               "mandatory": [
                 "left_command",
@@ -1343,7 +1294,7 @@
           "description": "option + command + o = select whole",
           "type": "basic",
           "from": {
-            "key_code": "o",
+            "key_code": "semicolon",
             "modifiers": {
               "mandatory": [
                 "left_option",
@@ -1363,54 +1314,6 @@
               "key_code": "end",
               "modifiers": [
                 "left_shift"
-              ]
-            }
-          ]
-        },
-        {
-          "description": "shift + o = command ` (next window within app)",
-          "type": "basic",
-          "from": {
-            "key_code": "o",
-            "modifiers": {
-              "mandatory": [
-                "left_shift",
-                
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "grave_accent_and_tilde",
-              "modifiers": [
-                "left_command"
-              ]
-            }
-          ]
-        },
-        {
-          "description": "control + o = option + command + h (expose all)",
-          "type": "basic",
-          "from": {
-            "key_code": "o",
-            "modifiers": {
-              "mandatory": [
-                "left_control",
-                
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "up_arrow",
-              "modifiers": [
-                "left_control"
               ]
             }
           ]
@@ -1459,10 +1362,10 @@
           ]
         },
         {
-          "description": " o = end",
+          "description": " ; = end",
           "type": "basic",
           "from": {
-            "key_code": "o",
+            "key_code": "semicolon",
             "modifiers": {
               "mandatory": [
                 
@@ -2324,34 +2227,10 @@
       "description": "Hyper Deletion",
       "manipulators": [
         {
-          "description": "option + n = delete whole line",
+          "description": "option + n = move line down",
           "type": "basic",
           "from": {
             "key_code": "n",
-            "modifiers": {
-              "mandatory": [
-                "left_option",
-                
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "delete_or_backspace",
-              "modifiers": [
-                "left_command"
-              ]
-            }
-          ]
-        },
-        {
-          "description": "option + m = move line down",
-          "type": "basic",
-          "from": {
-            "key_code": "m",
             "modifiers": {
               "mandatory": [
                 "left_option",
@@ -2373,10 +2252,10 @@
           ]
         },
         {
-          "description": "option + , = move line up",
+          "description": "option + m = move line up",
           "type": "basic",
           "from": {
-            "key_code": "comma",
+            "key_code": "m",
             "modifiers": {
               "mandatory": [
                 "left_option",
@@ -2398,66 +2277,13 @@
           ]
         },
         {
-          "description": "option + . = delete whole line",
+          "description": "Z = delete a word ahead",
           "type": "basic",
           "from": {
-            "key_code": "period",
+            "key_code": "z",
             "modifiers": {
               "mandatory": [
-                "left_option",
-                
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "delete_or_backspace",
-              "modifiers": [
-                "left_command"
-              ]
-            }
-          ]
-        },
-        {
-          "description": "command + n = delete whole line",
-          "type": "basic",
-          "from": {
-            "key_code": "n",
-            "modifiers": {
-              "mandatory": [
-                "left_command",
-                
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "left_arrow",
-              "modifiers": [
                 "left_shift",
-                "left_command"
-              ]
-            },
-            {
-              "key_code": "delete_or_backspace"
-            }
-          ]
-        },
-        {
-          "description": "command + m = delete word ahead",
-          "type": "basic",
-          "from": {
-            "key_code": "m",
-            "modifiers": {
-              "mandatory": [
-                "left_command",
-                
                 "right_control",
                 "right_shift",
                 "right_option"
@@ -2474,85 +2300,10 @@
           ]
         },
         {
-          "description": "command + , = delete word after",
+          "description": "z = delete a char ahead",
           "type": "basic",
           "from": {
-            "key_code": "comma",
-            "modifiers": {
-              "mandatory": [
-                "left_command",
-                
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "delete_forward",
-              "modifiers": [
-                "left_option"
-              ]
-            }
-          ]
-        },
-        {
-          "description": "command + . = delete whole line",
-          "type": "basic",
-          "from": {
-            "key_code": "period",
-            "modifiers": {
-              "mandatory": [
-                "left_command",
-                
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "right_arrow",
-              "modifiers": [
-                "left_shift",
-                "left_command"
-              ]
-            },
-            {
-              "key_code": "delete_or_backspace"
-            }
-          ]
-        },
-        {
-          "description": "n = delete a word ahead",
-          "type": "basic",
-          "from": {
-            "key_code": "n",
-            "modifiers": {
-              "mandatory": [
-                
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "delete_or_backspace",
-              "modifiers": [
-                "left_option"
-              ]
-            }
-          ]
-        },
-        {
-          "description": "m = delete a char ahead",
-          "type": "basic",
-          "from": {
-            "key_code": "m",
+            "key_code": "z",
             "modifiers": {
               "mandatory": [
                 
@@ -2569,10 +2320,10 @@
           ]
         },
         {
-          "description": ", = delete a char after",
+          "description": "x = delete a char after",
           "type": "basic",
           "from": {
-            "key_code": "comma",
+            "key_code": "x",
             "modifiers": {
               "mandatory": [
                 
@@ -2589,13 +2340,13 @@
           ]
         },
         {
-          "description": ". = delete a word after",
+          "description": "X = delete a word after",
           "type": "basic",
           "from": {
-            "key_code": "period",
+            "key_code": "x",
             "modifiers": {
               "mandatory": [
-                
+                "left_shift", 
                 "right_control",
                 "right_shift",
                 "right_option"
@@ -3170,27 +2921,6 @@
           ]
         },
         {
-          "description": "command + t = typora",
-          "type": "basic",
-          "from": {
-            "key_code": "t",
-            "modifiers": {
-              "mandatory": [
-                "left_command",
-                
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "shell_command": "open -a Typora"
-            }
-          ]
-        },
-        {
           "description": "option + t = notes",
           "type": "basic",
           "from": {
@@ -3315,47 +3045,6 @@
           ]
         },
         {
-          "description": "option + f = Dictionary",
-          "type": "basic",
-          "from": {
-            "key_code": "f",
-            "modifiers": {
-              "mandatory": [
-                "left_option",
-                
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "shell_command": "open -a Dictionary"
-            }
-          ]
-        },
-        {
-          "description": "f = Alfred 4",
-          "type": "basic",
-          "from": {
-            "key_code": "f",
-            "modifiers": {
-              "mandatory": [
-                
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "shell_command": "open -a 'Alfred 4'"
-            }
-          ]
-        },
-        {
           "description": "command + g = Chrome",
           "type": "basic",
           "from": {
@@ -3394,221 +3083,6 @@
           "to": [
             {
               "shell_command": "open -a Calendar"
-            }
-          ]
-        },
-        {
-          "description": "g = Intellij IDEA",
-          "type": "basic",
-          "from": {
-            "key_code": "g",
-            "modifiers": {
-              "mandatory": [
-                
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "shell_command": "open -a 'IntelliJ IDEA'"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "Hyper Terminal",
-      "manipulators": [
-        {
-          "description": "command + d = define",
-          "type": "basic",
-          "from": {
-            "key_code": "d",
-            "modifiers": {
-              "mandatory": [
-                "left_command",
-                
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d",
-              "modifiers": [
-                "left_control",
-                "left_command"
-              ]
-            }
-          ]
-        },
-        {
-          "description": "d = ctrl-d (EOF)",
-          "type": "basic",
-          "from": {
-            "key_code": "d",
-            "modifiers": {
-              "mandatory": [
-                
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "d",
-              "modifiers": [
-                "left_control"
-              ]
-            }
-          ]
-        },
-        {
-          "description": "command + z = F5 (vscode debug)",
-          "type": "basic",
-          "from": {
-            "key_code": "z",
-            "modifiers": {
-              "mandatory": [
-                "left_command",
-                
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "f5"
-            }
-          ]
-        },
-        {
-          "description": "z = ctrl-z",
-          "type": "basic",
-          "from": {
-            "key_code": "z",
-            "modifiers": {
-              "mandatory": [
-                
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "z",
-              "modifiers": [
-                "left_control"
-              ]
-            }
-          ]
-        },
-        {
-          "description": "command + x = ctrl + F5 (vscode run)",
-          "type": "basic",
-          "from": {
-            "key_code": "x",
-            "modifiers": {
-              "mandatory": [
-                "left_command",
-                
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "f5"
-            },
-            {
-              "modifiers": [
-                "left_control"
-              ]
-            }
-          ]
-        },
-        {
-          "description": "x = ctrl-r",
-          "type": "basic",
-          "from": {
-            "key_code": "x",
-            "modifiers": {
-              "mandatory": [
-                
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "r",
-              "modifiers": [
-                "left_control"
-              ]
-            }
-          ]
-        },
-        {
-          "description": "command + c = shift + F5 (vscode stop)",
-          "type": "basic",
-          "from": {
-            "key_code": "c",
-            "modifiers": {
-              "mandatory": [
-                "left_command",
-                
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "f5"
-            },
-            {
-              "modifiers": [
-                "left_shift"
-              ]
-            }
-          ]
-        },
-        {
-          "description": "c = ctrl-c",
-          "type": "basic",
-          "from": {
-            "key_code": "c",
-            "modifiers": {
-              "mandatory": [
-                
-                "right_control",
-                "right_shift",
-                "right_option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "c",
-              "modifiers": [
-                "left_control"
-              ]
             }
           ]
         }
