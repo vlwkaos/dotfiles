@@ -67,6 +67,7 @@ vnoremap * y/\V<C-R>*<CR>N
 noremap ; n
 " last non-blank character
 noremap $ g_
+noremap <Leader>m `
 
 function! GetVisualSelection()
     try
