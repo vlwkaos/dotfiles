@@ -123,12 +123,12 @@ if exists('g:vscode')
     command! ReplaceInFile call VSCodeNotify('workbench.action.replaceInFiles', {'query': expand('<cword>')})
     command! ReplaceInFileS call VSCodeNotify('workbench.action.replaceInFiles', {'query': @p})
     nnoremap <Leader>r :call SubstituteX()<CR>
-    vnoremap <Leader>r "py:call SubstituteSelected()<CR> 
+    vnoremap <Leader>r "py<Esc>:call SubstituteSelected()<CR> 
     nnoremap <silent> <Leader>R :ReplaceInFile<CR>
     xnoremap <silent> <Leader>R "py<Esc>:ReplaceInFileS<CR>
     " goto error mark 
-    command! NextChange call VSCodeNotify('workbench.action.editor.nextChange')
-    command! PrevChange call VSCodeNotify('workbench.action.editor.previousChange')
+    command! NextError call VSCodeNotify('editor.action.marker.next')
+    command! PrevError call VSCodeNotify('editor.action.marker.prev')
     nnoremap <silent> ]e :NextError<CR>
     nnoremap <silent> [e :PrevError<CR>
     command! NextChange call VSCodeNotify('workbench.action.editor.nextChange')
