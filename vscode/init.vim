@@ -101,7 +101,7 @@ endfunc
 if exists('g:vscode')
     " VSCode 
     command! Whichkey call VSCodeNotify('whichkey.show')
-    noremap ' :Whichkey<CR>
+    noremap ' <Esc>:Whichkey<CR>
     " must start with Uppercase T, this is vscode workaround
     noremap <silent> <Tab> :Tabnext<CR>
     noremap <silent> <S-Tab> :Tabprev<CR>
