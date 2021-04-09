@@ -1382,10 +1382,10 @@
           ]
         },
         {
-          "description": "command + p = shift + page_down",
+          "description": "command + d = shift + page_down",
           "type": "basic",
           "from": {
-            "key_code": "p",
+            "key_code": "d",
             "modifiers": {
               "mandatory": [
                 "left_command",
@@ -1406,10 +1406,10 @@
           ]
         },
         {
-          "description": "option + command + p = shift + page_down",
+          "description": "option + command + d = shift + page_down",
           "type": "basic",
           "from": {
-            "key_code": "p",
+            "key_code": "d",
             "modifiers": {
               "mandatory": [
                 "left_option",
@@ -1520,10 +1520,10 @@
           ]
         },
         {
-          "description": " p = page_down",
+          "description": " d = page_down",
           "type": "basic",
           "from": {
-            "key_code": "p",
+            "key_code": "d",
             "modifiers": {
               "mandatory": [
                 
