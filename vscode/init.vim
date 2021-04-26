@@ -4,6 +4,7 @@ Plug 'unblevable/quick-scope'
 Plug 'tpope/vim-repeat'
 Plug 'justinmk/vim-sneak'
 Plug 'tpope/vim-surround'
+Plug 'AndrewRadev/tagalong.vim'
 Plug 'wellle/targets.vim'
 Plug 'bkad/CamelCaseMotion'
 call plug#end()
