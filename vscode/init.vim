@@ -64,7 +64,7 @@ vnoremap il :<C-U>normal ^vg_<CR>
 omap il :normal vil<CR>
 " find match, start inplace
 nnoremap * *N
-vnoremap * y/\V<C-R>*<CR>N
+vnoremap * "py?\V<C-R>p<CR>/<CR>
 noremap ; n
 " last non-blank character
 noremap $ g_
@@ -86,7 +86,7 @@ func! SubstituteSelected()
     " execute '/'.selection <CR>
     let rp = input("Replace '".selection."' with :")
     call inputrestore()
-    execute '%s/'.selection.'/'.rp.'/gc'
+    execute '%s@'.selection.'@'.rp.'@gc'
 endfunc
 
 func! SubstituteX()
@@ -95,7 +95,7 @@ func! SubstituteX()
     " execute '/'.rpthis <CR>
     let rp = input("Replace '".rpthis."' with :")
     call inputrestore()
-    execute '%s/'.rpthis.'/'.rp.'/gc'
+    execute '%s@'.rpthis.'@'.rp.'@gc'
 endfunc
 
 
