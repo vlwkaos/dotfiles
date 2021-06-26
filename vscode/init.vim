@@ -7,6 +7,7 @@ Plug 'tpope/vim-surround'
 Plug 'AndrewRadev/tagalong.vim'
 Plug 'wellle/targets.vim'
 Plug 'bkad/CamelCaseMotion'
+Plug 'terryma/vim-expand-region'
 call plug#end()
 " plugin settings
 
