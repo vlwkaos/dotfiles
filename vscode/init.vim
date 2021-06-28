@@ -71,6 +71,14 @@ noremap ; n
 noremap $ g_
 noremap <Leader>m `
 
+" @ to run macro on lines.
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+
+function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
+
 function! GetVisualSelection()
     try
       let p_save = @p
@@ -81,6 +89,7 @@ function! GetVisualSelection()
     endtry
 endfunction
 
+" function substitute
 func! SubstituteSelected()
     let selection = @p
     call inputsave()
