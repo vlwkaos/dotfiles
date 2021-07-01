@@ -79,35 +79,6 @@ function! ExecuteMacroOverVisualRange()
   execute ":'<,'>normal @".nr2char(getchar())
 endfunction
 
-function! GetVisualSelection()
-    try
-      let p_save = @p
-      normal! "py
-      return @p
-    finally
-      let @p = p_save
-    endtry
-endfunction
-
-" function substitute
-func! SubstituteSelected()
-    let selection = @p
-    call inputsave()
-    " execute '/'.selection <CR>
-    let rp = input("Replace '".selection."' with :")
-    call inputrestore()
-    execute '%s@'.selection.'@'.rp.'@gc'
-endfunc
-
-func! SubstituteX()
-    call inputsave()
-    let rpthis = input("Pattern :")
-    " execute '/'.rpthis <CR>
-    let rp = input("Replace '".rpthis."' with :")
-    call inputrestore()
-    execute '%s@'.rpthis.'@'.rp.'@gc'
-endfunc
-
 
 if exists('g:vscode')
     " VSCode 
@@ -133,10 +104,8 @@ if exists('g:vscode')
     xnoremap <silent> <Leader>f "py<Esc>:FindInFileS<CR>
     command! ReplaceInFile call VSCodeNotify('workbench.action.replaceInFiles', {'query': expand('<cword>')})
     command! ReplaceInFileS call VSCodeNotify('workbench.action.replaceInFiles', {'query': @p})
-    nnoremap <Leader>r :call SubstituteX()<CR>
-    vnoremap <Leader>r "py<Esc>:call SubstituteSelected()<CR> 
-    nnoremap <silent> <Leader>R :ReplaceInFile<CR>
-    xnoremap <silent> <Leader>R "py<Esc>:ReplaceInFileS<CR>
+    nnoremap <silent> <Leader>r :ReplaceInFile<CR>
+    xnoremap <silent> <Leader>r "py<Esc>:ReplaceInFileS<CR>
     " goto error mark 
     command! NextError call VSCodeNotify('editor.action.marker.next')
     command! PrevError call VSCodeNotify('editor.action.marker.prev')
