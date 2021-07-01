@@ -98,14 +98,10 @@ if exists('g:vscode')
     command! RenameSymbol call VSCodeNotify('editor.action.rename')
     nnoremap <silent> <F2> :RenameSymbol<CR>
     " find in files, query: word under caret
-    command! FindInFile call VSCodeNotify('workbench.action.findInFiles', {'query': expand('<cword>')})
-    command! FindInFileS call VSCodeNotify('workbench.action.findInFiles', {'query': @p})
+    command! FindInFile call VSCodeNotify('workbench.action.findInFiles', {'query': expand('<cword>'), 'replace': ''})
+    command! FindInFileS call VSCodeNotify('workbench.action.findInFiles', {'query': @p, 'replace': ''})
     nnoremap <silent> <Leader>f :FindInFile<CR>
     xnoremap <silent> <Leader>f "py<Esc>:FindInFileS<CR>
-    command! ReplaceInFile call VSCodeNotify('workbench.action.replaceInFiles', {'query': expand('<cword>')})
-    command! ReplaceInFileS call VSCodeNotify('workbench.action.replaceInFiles', {'query': @p})
-    nnoremap <silent> <Leader>r :ReplaceInFile<CR>
-    xnoremap <silent> <Leader>r "py<Esc>:ReplaceInFileS<CR>
     " goto error mark 
     command! NextError call VSCodeNotify('editor.action.marker.next')
     command! PrevError call VSCodeNotify('editor.action.marker.prev')
