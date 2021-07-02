@@ -56,8 +56,8 @@ vnoremap x "_x
 "Paste in visual mode without copying
 xnoremap p pgvy
 " keep indent after new line
-nnoremap o ox<BS>
-nnoremap O Ox<BS>
+" nnoremap o ox<BS>
+" nnoremap O Ox<BS>
 " select line without \n
 vnoremap al :<C-U>normal 0v$h<CR>
 omap al :normal val<CR>
