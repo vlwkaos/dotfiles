@@ -37,18 +37,13 @@ matches:
     
   # md frontmatter
   - trigger: ":fm"
-    replace: "---\ntitle: '$|$'\nauthor: 'vlwkaos'\ncreated: {{date}}\npublished: false\n---\n"
+    replace: "---\ntitle: '$|$'\nauthor: 'vlwkaos'\ncreated: {{date}}\n---\n"
     vars:
       - name: date
         type: date
         params:
           format: "%Y-%m-%d:%H:%M:%S"
           
-
-  # md img insert 
-  - trigger: ":img"
-    replace: "<p align='center'>\n<img loading='lazy' src='$|$'/>\n<br><span>caption</span></p>"
-              
   # md embed
   - trigger: ":embed"
     replace: "<div class='embed-wrapper'>$|$</div>"
