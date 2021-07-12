@@ -43,6 +43,15 @@ matches:
         type: date
         params:
           format: "%Y-%m-%d:%H:%M:%S"
+
+  # release notify
+  - trigger: ":rls..."
+    replace: "웹 $|$ 배포하겠습니다\n버전: \n시간: {{date}}\n내용: "
+    vars:
+      - name: date
+        type: date
+        params:
+          format: "%Y/%m/%d %H:%M:%S"
           
   # md embed
   - trigger: ":embed"
