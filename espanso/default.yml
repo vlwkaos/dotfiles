@@ -46,8 +46,23 @@ matches:
 
   # release notify
   - trigger: ":rls..."
-    replace: "웹 $|$ 배포하겠습니다\n버전: \n시간: {{date}}\n내용: "
+    replace: "웹 {{form.deploytarget}} {{form.deployNumber}} 배포하겠습니다. \n버전: {{form.version}}\n시간: {{date}}\n내용: $|$"
     vars:
+      - name: form
+        type: form
+        params:
+          layout: |
+            배포 타겟 {{deploytarget}} 
+            배포 타겟 번호 {{deployNumber}}
+            버전 {{version}}
+          fields:
+            content:
+              multiline: true
+            deploytarget:
+              type: list
+              values:
+                - 스테이징
+                - 프로덕션
       - name: date
         type: date
         params:
