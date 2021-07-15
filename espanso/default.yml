@@ -56,8 +56,6 @@ matches:
             배포 타겟 번호 {{deployNumber}}
             버전 {{version}}
           fields:
-            content:
-              multiline: true
             deploytarget:
               type: list
               values:
