@@ -37,8 +37,19 @@ matches:
     
   # md frontmatter
   - trigger: ":fm"
-    replace: "---\ntitle: '$|$'\nauthor: 'vlwkaos'\ncreated: {{date}}\n---\n"
+    replace: |
+      ---
+      title: '{{fmform.title}}'
+      author: 'vlwkaos'
+      created: {{date}}
+      ---
+
+      # {{fmform.title}}
     vars:
+      - name: "fmform"
+        type: form
+        params:
+          layout: "Title: {{title}}"
       - name: date
         type: date
         params:
